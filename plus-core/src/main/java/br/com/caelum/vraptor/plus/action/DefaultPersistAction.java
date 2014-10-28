@@ -28,27 +28,27 @@ public class DefaultPersistAction extends AbstractAction implements PersistActio
 	@Override
 	public PersistAction save(IModel object) {
 		objectDb = db().use(persist()).save(object);
-		setMessage();
+		setMessage("success.save");
 		return this;
 	}
 
-	private void setMessage() {
+	private void setMessage(String message) {
 		if(message() == null) {
-			withMessage("success.save");
+			withMessage(message);
 		}
 	}
 
 	@Override
 	public <T> PersistAction insert(T object) {
 		objectDb = db().use(persist()).insert(object);
-		setMessage();
+		setMessage("success.insert");
 		return this;
 	}
 	
 	@Override
 	public <T> PersistAction update(T object) {
 		objectDb = db().use(persist()).update(object);
-		setMessage();
+		setMessage("success.update");
 		return this;
 	}
 

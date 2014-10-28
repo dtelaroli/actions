@@ -18,7 +18,6 @@ import br.com.caelum.vraptor.plus.api.Database;
 import br.com.caelum.vraptor.plus.api.action.PersistAction;
 import br.com.caelum.vraptor.plus.api.db.PersistDb;
 import br.com.caelum.vraptor.plus.api.test.MyController;
-import br.com.caelum.vraptor.plus.api.test.MyModel;
 import br.com.caelum.vraptor.util.test.MockResult;
 
 public class DefaultPersistActionTest {

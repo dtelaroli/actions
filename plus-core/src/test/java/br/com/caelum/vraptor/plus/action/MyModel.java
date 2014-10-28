@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.plus.api.test;
+package br.com.caelum.vraptor.plus.action;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

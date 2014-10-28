@@ -12,10 +12,8 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.action.AbstractAction;
 import br.com.caelum.vraptor.plus.api.Database;
 import br.com.caelum.vraptor.plus.api.test.MyController;
-import br.com.caelum.vraptor.plus.api.test.MyModel;
 import br.com.caelum.vraptor.util.test.MockResult;
 
 public class AbstractActionTest {

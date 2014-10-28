@@ -28,6 +28,14 @@
         <priority value="DEBUG" />
         <appender-ref ref="stdout" />
     </category>
+    <category name="org.avaje.ebean.TX">
+        <priority value="DEBUG" />
+        <appender-ref ref="stdout" />
+    </category>
+    <category name="org.avaje.ebean.SUM">
+        <priority value="DEBUG" />
+        <appender-ref ref="stdout" />
+    </category>
     <category name="org.dbunit">
         <priority value="DEBUG" />
         <appender-ref ref="stdout" />

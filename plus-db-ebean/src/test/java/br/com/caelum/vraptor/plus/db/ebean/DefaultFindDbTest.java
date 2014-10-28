@@ -9,22 +9,24 @@ import static org.junit.Assert.assertThat;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import br.com.caelum.vraptor.dbunit.ebean.DbUnitEbean;
 import br.com.caelum.vraptor.plus.api.db.FindDb;
 import br.com.caelum.vraptor.plus.api.db.pagination.Page;
-import br.com.caelum.vraptor.plus.api.test.MyModel;
-import br.com.caelum.vraptor.plus.dbunit.DbUnit;
-import br.com.caelum.vraptor.plus.dbunit.DbUnitEbean;
 
 public class DefaultFindDbTest {
 
 	private FindDb db;
+
+	@BeforeClass
+	public static void beforeClass() throws Exception {
+		new DbUnitEbean().init(MyModel.class);
+	}
 	
 	@Before
 	public void setUp() throws Exception {
-		DbUnit dbUnit = new DbUnitEbean();
-		dbUnit.init(MyModel.class);
 		db = new DefaultFindDb();
 	}
 	

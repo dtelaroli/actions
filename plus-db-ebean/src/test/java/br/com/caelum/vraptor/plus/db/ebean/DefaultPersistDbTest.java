@@ -4,25 +4,25 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import br.com.caelum.vraptor.dbunit.ebean.DbUnitEbean;
 import br.com.caelum.vraptor.plus.api.db.PersistDb;
-import br.com.caelum.vraptor.plus.api.test.MyModel;
-import br.com.caelum.vraptor.plus.dbunit.DbUnit;
-import br.com.caelum.vraptor.plus.dbunit.DbUnitEbean;
 
 import com.avaje.ebean.Ebean;
 
 public class DefaultPersistDbTest {
 
 	private PersistDb db;
-	private DbUnit dbUnit;
+	
+	@BeforeClass
+	public static void beforeClass() throws Exception {
+		new DbUnitEbean().init(MyModel.class);
+	}
 	
 	@Before
 	public void setUp() throws Exception {
-		dbUnit = new DbUnitEbean();
-		dbUnit.init(MyModel.class);
-		
 		db = new DefaultPersistDb();
 	}
 	

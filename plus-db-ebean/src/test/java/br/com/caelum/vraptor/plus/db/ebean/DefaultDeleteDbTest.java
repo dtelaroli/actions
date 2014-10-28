@@ -5,23 +5,25 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import br.com.caelum.vraptor.dbunit.ebean.DbUnitEbean;
 import br.com.caelum.vraptor.plus.api.db.DeleteDb;
-import br.com.caelum.vraptor.plus.api.test.MyModel;
-import br.com.caelum.vraptor.plus.dbunit.DbUnit;
-import br.com.caelum.vraptor.plus.dbunit.DbUnitEbean;
 
 import com.avaje.ebean.Ebean;
 
 public class DefaultDeleteDbTest {
 
 	private DeleteDb db;
+
+	@BeforeClass
+	public static void beforeClass() throws Exception {
+		new DbUnitEbean().init(MyModel.class);
+	}
 	
 	@Before
-	public void setUp() throws Exception {
-		DbUnit dbUnit = new DbUnitEbean();
-		dbUnit.init(MyModel.class);
+	public void setUp() {
 		db = new DefaultDeleteDb();
 	}
 	

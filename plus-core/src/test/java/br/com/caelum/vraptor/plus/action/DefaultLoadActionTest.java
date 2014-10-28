@@ -14,7 +14,6 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.plus.api.Database;
 import br.com.caelum.vraptor.plus.api.action.LoadAction;
 import br.com.caelum.vraptor.plus.api.db.FindDb;
-import br.com.caelum.vraptor.plus.api.test.MyModel;
 
 public class DefaultLoadActionTest {
 

@@ -22,7 +22,6 @@ import br.com.caelum.vraptor.plus.api.action.PaginationAction;
 import br.com.caelum.vraptor.plus.api.db.FindDb;
 import br.com.caelum.vraptor.plus.api.db.pagination.Page;
 import br.com.caelum.vraptor.plus.api.db.pagination.DefaultPageConfig;
-import br.com.caelum.vraptor.plus.api.test.MyModel;
 import br.com.caelum.vraptor.util.test.MockResult;
 
 public class DefaultPaginationActionTest {

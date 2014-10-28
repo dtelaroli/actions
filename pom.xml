@@ -2,27 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>br.com.caelum.vraptor</groupId>
-	<artifactId>plus-parent</artifactId>
+	<artifactId>actions-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-
-	<name>plus</name>
-	<url>https://github.com/dtelaroli/plus</url>
+	<name>actions-parent</name>
+	<url>https://github.com/dtelaroli/vraptor-actions</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<vraptor.version>4.1.1</vraptor.version>
-		<weld.version>2.1.2.Final</weld.version>
-		<junit.version>4.11</junit.version>
-		<hamcrest.version>1.3</hamcrest.version>
-		<mockito.version>1.9.5</mockito.version>
+		<weld.version>2.2.4.Final</weld.version>
 		<cdi.version>1.2</cdi.version>
 		<ebean.version>4.1.8</ebean.version>
 		<dbunit.version>2.5.0</dbunit.version>
-		<h2.version>1.4.181</h2.version>
 		<log4j.version>1.7.5</log4j.version>
+		<junit.version>4.11</junit.version>
+		<hamcrest.version>1.3</hamcrest.version>
+		<mockito.version>1.9.5</mockito.version>
+		<h2.version>1.4.181</h2.version>
 	</properties>
 
 	<dependencies>
@@ -73,9 +71,6 @@
 			<artifactId>avaje-ebeanorm-agent</artifactId>
 			<version>4.1.6</version>
 		</dependency>
-		
-		
-
 	</dependencies>
 
 	<build>
@@ -115,7 +110,7 @@
 									<pluginExecutionFilter>
 										<groupId>org.avaje.ebeanorm</groupId>
 										<artifactId>avaje-ebeanorm-mavenenhancer</artifactId>
-										<versionRange>[4.1.6,)</versionRange>
+										<versionRange>[${ebean.version},)</versionRange>
 										<goals>
 											<goal>enhance</goal>
 										</goals>
@@ -133,9 +128,9 @@
 	</build>
 
 	<modules>
-		<module>plus-core</module>
-		<module>plus-db-ebean</module>
-		<module>plus-api</module>
+		<module>actions-core</module>
+		<module>actions-db-ebean</module>
+		<module>actions-api</module>
 	</modules>
 
 </project>

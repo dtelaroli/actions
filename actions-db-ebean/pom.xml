@@ -5,24 +5,24 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>br.com.caelum.vraptor</groupId>
-		<artifactId>plus-parent</artifactId>
+		<artifactId>actions-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>plus-db-ebean</artifactId>
-	<name>plus-db-ebean</name>
+	<artifactId>actions-db-ebean</artifactId>
+	<name>actions-db-ebean</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
 		<dependency>
 			<groupId>br.com.caelum.vraptor</groupId>
-			<artifactId>plus-api</artifactId>
-			<version>${project.parent.version}</version>
+			<artifactId>actions-api</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>br.com.caelum.vraptor</groupId>
 			<artifactId>dbunit-ebean</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 	

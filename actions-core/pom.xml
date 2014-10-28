@@ -5,18 +5,18 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>br.com.caelum.vraptor</groupId>
-		<artifactId>plus-parent</artifactId>
+		<artifactId>actions-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>plus</artifactId>
-	<name>plus</name>
+	<artifactId>actions-core</artifactId>
+	<name>actions-core</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
 		<dependency>
 			<groupId>br.com.caelum.vraptor</groupId>
-			<artifactId>plus-api</artifactId>
-			<version>${project.parent.version}</version>
+			<artifactId>actions-api</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>

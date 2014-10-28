@@ -2,6 +2,7 @@ package br.com.caelum.vraptor.plus.db.ebean;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
+import models.MyModel;
 
 import org.junit.Before;
 import org.junit.BeforeClass;

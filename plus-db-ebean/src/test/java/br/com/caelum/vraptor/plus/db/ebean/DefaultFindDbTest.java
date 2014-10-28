@@ -8,6 +8,8 @@ import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
+import models.MyModel;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

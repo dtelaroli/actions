@@ -12,7 +12,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.test.MyController;
 import br.com.caelum.vraptor.util.test.MockResult;
 
@@ -20,7 +20,7 @@ public class AbstractActionTest {
 
 	private AbstractAction act;
 	@Spy private Result result = new MockResult();
-	@Mock private Database db;
+	@Mock private Db db;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -37,7 +37,7 @@ public class AbstractActionTest {
 
 	@Test
 	public void shouldReturnDbInstance() {
-		assertThat(act.db(), instanceOf(Database.class));
+		assertThat(act.db(), instanceOf(Db.class));
 	}
 	
 	@Test

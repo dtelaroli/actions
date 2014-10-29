@@ -12,7 +12,7 @@ import org.mockito.MockitoAnnotations;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.ioc.Container;
-import br.com.caelum.vraptor.plus.api.Action;
+import br.com.caelum.vraptor.plus.api.Act;
 import br.com.caelum.vraptor.plus.api.action.ListAllAction;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
@@ -20,7 +20,7 @@ import br.com.caelum.vraptor.validator.Validator;
 
 public class DefaultActionTest {
 
-	private Action act;
+	private Act act;
 	@Mock private Container container;
 	
 	@SuppressWarnings("deprecation")

@@ -13,14 +13,14 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.ListAllAction;
 import br.com.caelum.vraptor.plus.api.db.FindDb;
 
 public class DefaultListAllActionTest {
 
 	private ListAllAction act;
-	@Mock private Database db;
+	@Mock private Db db;
 	@Mock private FindDb listDb;
 	@Mock private Result result;
 	

@@ -5,7 +5,7 @@ import static br.com.caelum.vraptor.plus.api.Databases.delete;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.DeleteAction;
 
 public class DefaultDeleteAction extends AbstractAction implements DeleteAction {
@@ -21,7 +21,7 @@ public class DefaultDeleteAction extends AbstractAction implements DeleteAction 
 	}
 
 	@Inject
-	public DefaultDeleteAction(Result result, Database db) {
+	public DefaultDeleteAction(Result result, Db db) {
 		super(result, db);
 	}
 

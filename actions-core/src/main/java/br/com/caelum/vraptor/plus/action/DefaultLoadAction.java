@@ -5,7 +5,7 @@ import static br.com.caelum.vraptor.plus.api.Databases.find;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.LoadAction;
 
 public class DefaultLoadAction extends AbstractAction implements LoadAction {
@@ -18,7 +18,7 @@ public class DefaultLoadAction extends AbstractAction implements LoadAction {
 	}
 	
 	@Inject
-	public DefaultLoadAction(Result result, Database db) {
+	public DefaultLoadAction(Result result, Db db) {
 		super(result, db);
 	}
 

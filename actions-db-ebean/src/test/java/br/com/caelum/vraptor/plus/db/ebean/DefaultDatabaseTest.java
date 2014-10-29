@@ -11,12 +11,12 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import br.com.caelum.vraptor.ioc.Container;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.db.FindDb;
 
 public class DefaultDatabaseTest {
 
-	private Database dbs;
+	private Db dbs;
 	@Mock private Container container;
 	
 	@Before

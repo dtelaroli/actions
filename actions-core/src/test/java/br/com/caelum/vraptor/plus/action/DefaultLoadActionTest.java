@@ -11,14 +11,14 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.LoadAction;
 import br.com.caelum.vraptor.plus.api.db.FindDb;
 
 public class DefaultLoadActionTest {
 
 	private LoadAction act;
-	@Mock private Database db;
+	@Mock private Db db;
 	@Mock private FindDb findDb;
 	@Mock private Result result;
 	

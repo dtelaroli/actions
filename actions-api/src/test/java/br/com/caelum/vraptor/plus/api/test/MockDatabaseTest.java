@@ -7,14 +7,14 @@ import static br.com.caelum.vraptor.plus.api.Databases.persist;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.db.IModel;
 
 import com.avaje.ebean.Model;
 
 public class MockDatabaseTest {
 
-	Database mock;
+	Db mock;
 	
 	@Before
 	public void setUp() throws Exception {

@@ -5,7 +5,7 @@ import static br.com.caelum.vraptor.plus.api.Databases.persist;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.PersistAction;
 import br.com.caelum.vraptor.plus.api.db.IModel;
 
@@ -21,7 +21,7 @@ public class DefaultPersistAction extends AbstractAction implements PersistActio
 	}
 
 	@Inject
-	public DefaultPersistAction(Result result, Database db) {
+	public DefaultPersistAction(Result result, Db db) {
 		super(result, db);
 	}
 

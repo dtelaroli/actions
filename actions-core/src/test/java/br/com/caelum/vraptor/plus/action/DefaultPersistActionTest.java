@@ -14,7 +14,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.PersistAction;
 import br.com.caelum.vraptor.plus.api.db.PersistDb;
 import br.com.caelum.vraptor.plus.api.test.MyController;
@@ -24,7 +24,7 @@ public class DefaultPersistActionTest {
 
 	private PersistAction act;
 	private MyModel model;
-	@Mock private Database db;
+	@Mock private Db db;
 	@Mock private PersistDb saveDb;
 	@Spy private Result result = new MockResult();
 	

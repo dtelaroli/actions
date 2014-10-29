@@ -3,17 +3,17 @@ package br.com.caelum.vraptor.plus.api.test;
 import javax.enterprise.inject.Vetoed;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Act;
 import br.com.caelum.vraptor.plus.api.Action;
+import br.com.caelum.vraptor.plus.api.Act;
 import br.com.caelum.vraptor.util.test.MockSerializationResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Vetoed
-public class MockAction extends AbstractMock implements Action {
+public class MockAction extends AbstractMock implements Act {
 
 	@Override
-	public <T extends Act> T as(Class<T> act) {
+	public <T extends Action> T as(Class<T> act) {
 		return getProxifier().proxify(act, returnOnFinalMethods(act));
 	}
 

@@ -14,7 +14,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.DeleteAction;
 import br.com.caelum.vraptor.plus.api.db.DeleteDb;
 import br.com.caelum.vraptor.plus.api.test.MyController;
@@ -23,7 +23,7 @@ import br.com.caelum.vraptor.util.test.MockResult;
 public class DefaultDeleteActionTest {
 
 	private DeleteAction act;
-	@Mock private Database db;
+	@Mock private Db db;
 	@Mock private DeleteDb removeDb;
 	@Spy private Result result = new MockResult();
 	

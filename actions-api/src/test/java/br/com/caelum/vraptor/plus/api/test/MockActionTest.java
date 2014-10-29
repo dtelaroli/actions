@@ -8,13 +8,13 @@ import static br.com.caelum.vraptor.plus.api.Actions.pagination;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.caelum.vraptor.plus.api.Action;
+import br.com.caelum.vraptor.plus.api.Act;
 
 import com.avaje.ebean.Model;
 
 public class MockActionTest {
 
-	Action mock;
+	Act mock;
 	
 	@Before
 	public void setUp() throws Exception {

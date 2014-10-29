@@ -4,11 +4,11 @@ import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.ioc.Container;
-import br.com.caelum.vraptor.plus.api.Act;
 import br.com.caelum.vraptor.plus.api.Action;
+import br.com.caelum.vraptor.plus.api.Act;
 import br.com.caelum.vraptor.validator.Validator;
 
-public class DefaultAction implements Action {
+public class DefaultAction implements Act {
 
 	private final Container container;
 	private final Result result;
@@ -29,7 +29,7 @@ public class DefaultAction implements Action {
 	}
 
 	@Override
-	public <T extends Act> T as(Class<T> act) {
+	public <T extends Action> T as(Class<T> act) {
 		return container.instanceFor(act);
 	}
 

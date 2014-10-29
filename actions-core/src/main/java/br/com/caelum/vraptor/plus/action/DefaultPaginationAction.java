@@ -5,7 +5,7 @@ import static br.com.caelum.vraptor.plus.api.Databases.find;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.PaginationAction;
 import br.com.caelum.vraptor.plus.api.db.pagination.Page;
 import br.com.caelum.vraptor.plus.api.db.pagination.DefaultPageConfig;
@@ -23,7 +23,7 @@ public class DefaultPaginationAction extends AbstractAction implements Paginatio
 	}
 	
 	@Inject
-	public DefaultPaginationAction(Result result, Database db, DefaultPageConfig config) {
+	public DefaultPaginationAction(Result result, Db db, DefaultPageConfig config) {
 		super(result, db);
 		limit = config.getLimit();
 	}

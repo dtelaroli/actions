@@ -1,22 +1,22 @@
 package br.com.caelum.vraptor.plus.action;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.Activity;
 
 public abstract class AbstractAction implements Activity {
 
 	private final Result result;
-	private final Database db;
+	private final Db db;
 	private String message;
 
-	public AbstractAction(Result result, Database db) {
+	public AbstractAction(Result result, Db db) {
 		this.result = result;
 		this.db = db;
 	}
 
 	@Override
-	public Database db() {
+	public Db db() {
 		return db;
 	}
 

@@ -1,14 +1,14 @@
 package br.com.caelum.vraptor.plus.api.action;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Act;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Action;
+import br.com.caelum.vraptor.plus.api.Db;
 
-public interface Activity extends Act {
+public interface Activity extends Action {
 
-	Act withMessage(String message);
+	Action withMessage(String message);
 
-	Database db();
+	Db db();
 
 	Result result();
 

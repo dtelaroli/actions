@@ -17,7 +17,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.plus.api.Database;
+import br.com.caelum.vraptor.plus.api.Db;
 import br.com.caelum.vraptor.plus.api.action.PaginationAction;
 import br.com.caelum.vraptor.plus.api.db.FindDb;
 import br.com.caelum.vraptor.plus.api.db.pagination.Page;
@@ -27,7 +27,7 @@ import br.com.caelum.vraptor.util.test.MockResult;
 public class DefaultPaginationActionTest {
 
 	private PaginationAction act;
-	@Mock private Database db;
+	@Mock private Db db;
 	@Mock private FindDb findDb;
 	@Spy private Result result = new MockResult();
 	private DefaultPageConfig config;

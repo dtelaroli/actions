@@ -3,10 +3,10 @@ package br.com.caelum.vraptor.plus.db.ebean;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.ioc.Container;
-import br.com.caelum.vraptor.plus.api.Database;
 import br.com.caelum.vraptor.plus.api.Db;
+import br.com.caelum.vraptor.plus.api.Database;
 
-public class DefaultDataBase implements Database {
+public class DefaultDataBase implements Db {
 
 	private final Container container;
 
@@ -23,7 +23,7 @@ public class DefaultDataBase implements Database {
 	}
 
 	@Override
-	public <T extends Db> T use(Class<T> db) {
+	public <T extends Database> T use(Class<T> db) {
 		return container.instanceFor(db);
 	}
 

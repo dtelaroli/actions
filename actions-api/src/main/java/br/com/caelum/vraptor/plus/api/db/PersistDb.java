@@ -1,8 +1,8 @@
 package br.com.caelum.vraptor.plus.api.db;
 
-import br.com.caelum.vraptor.plus.api.Db;
+import br.com.caelum.vraptor.plus.api.Database;
 
-public interface PersistDb extends Db {
+public interface PersistDb extends Database {
 
 	<T> T save(IModel object);
 

@@ -1,0 +1,46 @@
+package br.com.caelum.vraptor.actions.core;
+
+import javax.inject.Inject;
+
+import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.actions.api.Act;
+import br.com.caelum.vraptor.actions.api.Action;
+import br.com.caelum.vraptor.ioc.Container;
+import br.com.caelum.vraptor.validator.Validator;
+
+public class DefaultAction implements Act {
+
+	private final Container container;
+	private final Result result;
+	private final Validator validator;
+
+	/**
+	 * @deprecated CDI eyes-only
+	 */
+	protected DefaultAction() {
+		this(null);
+	}
+	
+	@Inject
+	public DefaultAction(Container container) {
+		this.container = container;
+		result = container.instanceFor(Result.class);
+		validator = container.instanceFor(Validator.class);
+	}
+
+	@Override
+	public <T extends Action> T as(Class<T> act) {
+		return container.instanceFor(act);
+	}
+
+	@Override
+	public Result result() {
+		return result;
+	}
+
+	@Override
+	public Validator validator() {
+		return validator;
+	}
+
+}

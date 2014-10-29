@@ -1,4 +1,4 @@
-package models;
+package br.com.caelum.vraptor.actions.core;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -29,7 +29,7 @@ public class DefaultAction implements Action {
 	}
 
 	@Override
-	public <T extends Act> T use(Class<T> act) {
+	public <T extends Act> T as(Class<T> act) {
 		return container.instanceFor(act);
 	}
 

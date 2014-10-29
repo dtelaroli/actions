@@ -37,7 +37,7 @@ public class DefaultActionTest {
 
 	@Test
 	public void shouldReturnListAllActionInstance() {
-		assertThat(act.use(list()), instanceOf(ListAllAction.class));
+		assertThat(act.as(list()), instanceOf(ListAllAction.class));
 	}
 	
 	@Test

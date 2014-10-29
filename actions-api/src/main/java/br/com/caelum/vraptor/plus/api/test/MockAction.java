@@ -13,7 +13,7 @@ import br.com.caelum.vraptor.validator.Validator;
 public class MockAction extends AbstractMock implements Action {
 
 	@Override
-	public <T extends Act> T use(Class<T> act) {
+	public <T extends Act> T as(Class<T> act) {
 		return getProxifier().proxify(act, returnOnFinalMethods(act));
 	}
 

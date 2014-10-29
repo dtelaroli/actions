@@ -5,7 +5,7 @@ import br.com.caelum.vraptor.validator.Validator;
 
 public interface Action {
 
-	<T extends Act> T use(Class<T> act);
+	<T extends Act> T as(Class<T> act);
 	
 	Result result();
 	

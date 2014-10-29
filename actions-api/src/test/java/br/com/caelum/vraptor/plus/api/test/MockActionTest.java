@@ -23,22 +23,22 @@ public class MockActionTest {
 
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbAll() {
-		mock.use(list()).all(Model.class);
+		mock.as(list()).all(Model.class);
 	}
 	
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbPersist() {
-		mock.use(load()).by(Model.class, 1);
+		mock.as(load()).by(Model.class, 1);
 	}
 	
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbDelete() {
-		mock.use(delete()).by(Model.class, 1L);
+		mock.as(delete()).by(Model.class, 1L);
 	}
 	
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbPaginate() {
-		mock.use(pagination()).page(1).limit(10).paginate(Model.class);
+		mock.as(pagination()).page(1).limit(10).paginate(Model.class);
 	}
 
 }

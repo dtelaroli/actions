@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.actions.api.action.DeleteAction;
-import br.com.caelum.vraptor.actions.api.action.ListAllAction;
+import br.com.caelum.vraptor.actions.api.action.ListAction;
 import br.com.caelum.vraptor.actions.api.action.LoadAction;
 import br.com.caelum.vraptor.actions.api.action.PaginationAction;
 import br.com.caelum.vraptor.actions.api.action.PersistAction;
@@ -20,7 +20,7 @@ public class ActionsTest {
 
 	@Test
 	public void shouldReturnListAllAction() {
-		assertThat(list(), typeCompatibleWith(ListAllAction.class));
+		assertThat(list(), typeCompatibleWith(ListAction.class));
 	}
 	
 	@Test

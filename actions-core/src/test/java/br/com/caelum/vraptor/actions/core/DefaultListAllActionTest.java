@@ -14,13 +14,13 @@ import org.mockito.MockitoAnnotations;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
-import br.com.caelum.vraptor.actions.api.action.ListAllAction;
+import br.com.caelum.vraptor.actions.api.action.ListAction;
 import br.com.caelum.vraptor.actions.api.db.FindDb;
-import br.com.caelum.vraptor.actions.core.DefaultListAllAction;
+import br.com.caelum.vraptor.actions.core.DefaultListAction;
 
 public class DefaultListAllActionTest {
 
-	private ListAllAction act;
+	private ListAction act;
 	@Mock private Db db;
 	@Mock private FindDb listDb;
 	@Mock private Result result;
@@ -32,7 +32,7 @@ public class DefaultListAllActionTest {
 		when(listDb.all(MyModel.class)).thenReturn(Arrays.asList(new MyModel()));
 		when(db.use(find())).thenReturn(listDb);
 		
-		act = new DefaultListAllAction(result, db);
+		act = new DefaultListAction(result, db);
 	}
 
 	@Test

@@ -12,9 +12,9 @@ import org.mockito.MockitoAnnotations;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Act;
-import br.com.caelum.vraptor.actions.api.action.ListAllAction;
+import br.com.caelum.vraptor.actions.api.action.ListAction;
 import br.com.caelum.vraptor.actions.core.DefaultAction;
-import br.com.caelum.vraptor.actions.core.DefaultListAllAction;
+import br.com.caelum.vraptor.actions.core.DefaultListAction;
 import br.com.caelum.vraptor.ioc.Container;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
@@ -30,7 +30,7 @@ public class DefaultActionTest {
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		
-		when(container.instanceFor(list())).thenReturn(new DefaultListAllAction());
+		when(container.instanceFor(list())).thenReturn(new DefaultListAction());
 		when(container.instanceFor(Result.class)).thenReturn(new MockResult());
 		when(container.instanceFor(Validator.class)).thenReturn(new MockValidator());
 		
@@ -39,7 +39,7 @@ public class DefaultActionTest {
 
 	@Test
 	public void shouldReturnListAllActionInstance() {
-		assertThat(act.as(list()), instanceOf(ListAllAction.class));
+		assertThat(act.as(list()), instanceOf(ListAction.class));
 	}
 	
 	@Test

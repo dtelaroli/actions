@@ -9,20 +9,20 @@ import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
-import br.com.caelum.vraptor.actions.api.action.ListAllAction;
+import br.com.caelum.vraptor.actions.api.action.ListAction;
 
 @RequestScoped
-public class DefaultListAllAction extends AbstractAction implements ListAllAction {
+public class DefaultListAction extends AbstractAction implements ListAction {
 
 	/**
 	 * @deprecated CDI eyes-only
 	 */
-	protected DefaultListAllAction() {
+	protected DefaultListAction() {
 		this(null, null);
 	}
 
 	@Inject
-	public DefaultListAllAction(Result result, Db db) {
+	public DefaultListAction(Result result, Db db) {
 		super(result, db);
 	}
 	

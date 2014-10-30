@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.db.ebean;
+package br.com.caelum.vraptor.actions.api.db;
 
 import javax.inject.Inject;
 

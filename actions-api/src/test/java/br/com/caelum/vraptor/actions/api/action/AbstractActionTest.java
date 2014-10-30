@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.core;
+package br.com.caelum.vraptor.actions.api.action;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
@@ -14,7 +14,7 @@ import org.mockito.Spy;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.test.MyController;
-import br.com.caelum.vraptor.actions.core.AbstractAction;
+import br.com.caelum.vraptor.actions.api.test.MyModel;
 import br.com.caelum.vraptor.util.test.MockResult;
 
 public class AbstractActionTest {

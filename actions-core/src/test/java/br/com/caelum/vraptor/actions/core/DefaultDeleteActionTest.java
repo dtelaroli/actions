@@ -17,8 +17,6 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.action.DeleteAction;
 import br.com.caelum.vraptor.actions.api.db.DeleteDb;
-import br.com.caelum.vraptor.actions.api.test.MyController;
-import br.com.caelum.vraptor.actions.core.DefaultDeleteAction;
 import br.com.caelum.vraptor.util.test.MockResult;
 
 public class DefaultDeleteActionTest {

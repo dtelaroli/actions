@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
+import br.com.caelum.vraptor.actions.api.action.AbstractAction;
 import br.com.caelum.vraptor.actions.api.action.PaginationAction;
 import br.com.caelum.vraptor.actions.api.db.pagination.DefaultPageConfig;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;

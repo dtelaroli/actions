@@ -1,8 +1,7 @@
-package br.com.caelum.vraptor.actions.core;
+package br.com.caelum.vraptor.actions.api.action;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
-import br.com.caelum.vraptor.actions.api.action.Activity;
 
 public abstract class AbstractAction implements Activity {
 

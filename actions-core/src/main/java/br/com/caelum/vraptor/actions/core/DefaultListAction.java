@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
+import br.com.caelum.vraptor.actions.api.action.AbstractAction;
 import br.com.caelum.vraptor.actions.api.action.ListAction;
 
 @RequestScoped

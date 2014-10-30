@@ -2,6 +2,8 @@ package br.com.caelum.vraptor.actions.api.test;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Action;
@@ -46,6 +48,10 @@ public abstract class AbstractMock implements Action {
 		return proxifier;
 	}
 	
+	protected <T> T proxy(Class<T> type) {
+		return getProxifier().proxify(type, returnOnFinalMethods(type));
+	}
+	
 	public Result result() {
 		return result;
 	}
@@ -68,9 +74,9 @@ public abstract class AbstractMock implements Action {
 		return message;
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected <T> MethodInvocation<T> returnOnFinalMethods(final Class<T> type) {
 		return new MethodInvocation<T>() {
-			@SuppressWarnings({ "rawtypes", "unchecked" })
 			@Override
 			public Object intercept(T proxy, Method method, Object[] args, SuperMethod superMethod) {
 				Class returnType = method.getReturnType();
@@ -83,9 +89,14 @@ public abstract class AbstractMock implements Action {
 				}
 
 				if (args.length > 0 && args[0].equals(type)) {
-					return proxifier.proxify((Class) args[0], returnOnFinalMethods(type));
+					return proxifier.proxify((Class) args[0], returnOnFirstInvocation());
 				}
-				return proxifier.proxify(returnType, returnOnFirstInvocation());
+				
+				if(List.class.isAssignableFrom(returnType)) {
+					return new ArrayList<>();
+				}
+				
+				return proxifier.proxify(returnType, returnOnFinalMethods(type));
 			}
 		};
 	}
@@ -98,5 +109,7 @@ public abstract class AbstractMock implements Action {
 			}
 		};
 	}
+
+	public abstract Action returning(Object obj);
 	
 }

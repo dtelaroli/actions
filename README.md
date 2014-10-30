@@ -44,7 +44,7 @@ Not implemented yet
 
 ### Criando as suas Actions
 
-Para criar uma action basta criar uma classe que implementa a interface `Action`.
+Para criar uma action basta criar uma classe que implementa a interface `Act`.
 
 #### Action
 
@@ -156,7 +156,7 @@ Podem ser injetados através da interface `Db`.
 
 ### Criando as seus Databases
 
-Para criar um database basta criar uma classe que implementa a interface `Database`.
+Para criar um database basta criar uma classe que implementa a interface `Db`.
 
 #### Action
 

@@ -1,5 +1,7 @@
 package br.com.caelum.vraptor.actions.api.test;
 
+import java.util.Collections;
+
 import javax.enterprise.inject.Vetoed;
 
 import br.com.caelum.vraptor.Result;
@@ -13,7 +15,7 @@ public class MockPaginationAction extends AbstractMock implements PaginationActi
 
 	private int page = 1;
 	private int limit = 20;
-	private Page<?> pageObject;
+	private Object obj;
 	
 	public MockPaginationAction() {
 		super();
@@ -38,24 +40,26 @@ public class MockPaginationAction extends AbstractMock implements PaginationActi
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> Page<T> paginate(Class<T> type) {
-		if(pageObject == null) {
-			pageObject = (Page<?>) getProxifier().proxify(type, returnOnFinalMethods(type));
+		Page<T> returning = null;
+		if(obj == null) {
+			returning = new Page<T>(Collections.emptyList());
 		}
-		
-		pageObject.setNumber(page);
-		pageObject.setLimit(limit);
-		
-		return (Page<T>) pageObject;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public <T> PaginationAction returning(Object object) {
-		if(object instanceof Page){
-			this.pageObject = (Page<T>) object;
+		else if(obj instanceof Page){
+			returning = (Page<T>) obj;
 		}
 		else {
-			this.pageObject = new Page<T>(object);
+			returning = new Page<T>(obj);
 		}
+		
+		returning.setNumber(page);
+		returning.setLimit(limit);
+		
+		return returning;
+	}
+
+	@Override
+	public MockPaginationAction returning(Object obj) {
+		this.obj = obj;
 		return this;
 	}
 	

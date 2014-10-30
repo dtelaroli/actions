@@ -14,8 +14,8 @@ import br.com.caelum.vraptor.validator.Validator;
 @Vetoed
 public class MockAct extends AbstractMock implements Act {
 	
-	private Object object;
 	private MockPaginationAction mockPagination;
+	private Object obj;
 	
 	public MockAct() {
 		this(new MockResult());
@@ -34,14 +34,15 @@ public class MockAct extends AbstractMock implements Act {
 	@Override
 	public <T extends Action> T as(Class<T> act) {
 		if(act.isAssignableFrom(PaginationAction.class)) {
-			return (T) mockPagination.returning(object);
+			return (T) mockPagination.returning(obj);
 		}
-		return getProxifier().proxify(act, returnOnFinalMethods(act));
+		return proxy(act);
 	}
 
-	public <T> MockAct returning(T object) {
-		this.object = object;
+	@Override
+	public MockAct returning(Object obj) {
+		this.obj = obj;
 		return this;
 	}
-	
+
 }

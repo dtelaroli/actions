@@ -14,7 +14,7 @@ Configure a sua aplicação para funcionar normalmente com o [VRaptor](http://vr
 <dependency>
 	<groupId>br.com.caelum.vraptor</groupId>
 	<artifactId>actions-core</artifactId>
-	<version>${project.version}</version>
+	<version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
 

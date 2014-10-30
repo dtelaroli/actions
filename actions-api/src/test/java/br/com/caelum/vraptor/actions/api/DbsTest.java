@@ -1,8 +1,8 @@
 package br.com.caelum.vraptor.actions.api;
 
-import static br.com.caelum.vraptor.actions.api.Databases.delete;
-import static br.com.caelum.vraptor.actions.api.Databases.find;
-import static br.com.caelum.vraptor.actions.api.Databases.persist;
+import static br.com.caelum.vraptor.actions.api.Dbs.delete;
+import static br.com.caelum.vraptor.actions.api.Dbs.find;
+import static br.com.caelum.vraptor.actions.api.Dbs.persist;
 import static org.hamcrest.Matchers.typeCompatibleWith;
 import static org.junit.Assert.assertThat;
 
@@ -12,7 +12,7 @@ import br.com.caelum.vraptor.actions.api.db.DeleteDb;
 import br.com.caelum.vraptor.actions.api.db.FindDb;
 import br.com.caelum.vraptor.actions.api.db.PersistDb;
 
-public class DatabasesTest {
+public class DbsTest {
 
 	@Test
 	public void shouldReturnListAllDb() {

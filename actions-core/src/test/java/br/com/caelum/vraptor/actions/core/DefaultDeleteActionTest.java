@@ -1,6 +1,6 @@
 package br.com.caelum.vraptor.actions.core;
 
-import static br.com.caelum.vraptor.actions.api.Databases.delete;
+import static br.com.caelum.vraptor.actions.api.Dbs.delete;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;

@@ -1,6 +1,6 @@
 package br.com.caelum.vraptor.actions.core;
 
-import static br.com.caelum.vraptor.actions.api.Databases.find;
+import static br.com.caelum.vraptor.actions.api.Dbs.find;
 
 import javax.inject.Inject;
 

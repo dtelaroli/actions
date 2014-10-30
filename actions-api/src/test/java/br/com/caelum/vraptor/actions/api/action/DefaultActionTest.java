@@ -1,6 +1,6 @@
 package br.com.caelum.vraptor.actions.api.action;
 
-import static br.com.caelum.vraptor.actions.api.Actions.list;
+import static br.com.caelum.vraptor.actions.api.Acts.list;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;

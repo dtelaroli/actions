@@ -36,11 +36,11 @@ Not implemented yet
 
 ### Ações implementadas.
 
-- ListAction: `Actions.list()`
-- LoadAction: `Actions.load()`
-- PaginationAction: `Actions.pagination()`
-- PersistAction: `Actions.persist()`
-- DeleteAction: `Actions.delete()`
+- ListAction: `Acts.list()`
+- LoadAction: `Acts.load()`
+- PaginationAction: `Acts.pagination()`
+- PersistAction: `Acts.persist()`
+- DeleteAction: `Acts.delete()`
 
 ### Criando as suas Actions
 
@@ -67,6 +67,13 @@ act.as(MyAction.class).myMethod();
 ### CRUD de Exemplo
 
 ```Java
+import static br.com.caelum.vraptor.actions.api.Acts.delete;
+import static br.com.caelum.vraptor.actions.api.Acts.list;
+import static br.com.caelum.vraptor.actions.api.Acts.load;
+import static br.com.caelum.vraptor.actions.api.Acts.pagination;
+import static br.com.caelum.vraptor.actions.api.Acts.persist;
+import static br.com.caelum.vraptor.view.Results.referer;
+
 @Controller @Path("/user")
 public class UserController {
 
@@ -142,9 +149,9 @@ public class UserController {
 Podem ser injetados através da interface `Db`.
 
 ```Java
-- FindAction: `Databases.find()`
-- PersistDb: `Databases.persist()`
-- DeleteDb: `Databases.delete()`
+- FindAction: `Dbs.find()`
+- PersistDb: `Dbs.persist()`
+- DeleteDb: `Dbs.delete()`
 ```
 
 ### Criando as seus Databases

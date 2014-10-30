@@ -1,6 +1,6 @@
 package br.com.caelum.vraptor.actions.core;
 
-import static br.com.caelum.vraptor.actions.api.Databases.persist;
+import static br.com.caelum.vraptor.actions.api.Dbs.persist;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.notNullValue;

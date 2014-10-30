@@ -7,7 +7,7 @@ import br.com.caelum.vraptor.actions.api.db.FindDb;
 import br.com.caelum.vraptor.actions.api.db.PersistDb;
 
 @Vetoed
-public class Databases {
+public class Dbs {
 
 	public static Class<PersistDb> persist() {
 		return PersistDb.class;

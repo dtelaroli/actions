@@ -9,7 +9,7 @@ import br.com.caelum.vraptor.actions.api.action.PaginationAction;
 import br.com.caelum.vraptor.actions.api.action.PersistAction;
 
 @Vetoed
-public class Actions {
+public class Acts {
 
 	public static Class<ListAction> list() {
 		return ListAction.class;

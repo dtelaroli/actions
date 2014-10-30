@@ -1,9 +1,9 @@
 package br.com.caelum.vraptor.actions.api.test;
 
-import static br.com.caelum.vraptor.actions.api.Actions.delete;
-import static br.com.caelum.vraptor.actions.api.Actions.list;
-import static br.com.caelum.vraptor.actions.api.Actions.load;
-import static br.com.caelum.vraptor.actions.api.Actions.pagination;
+import static br.com.caelum.vraptor.actions.api.Acts.delete;
+import static br.com.caelum.vraptor.actions.api.Acts.list;
+import static br.com.caelum.vraptor.actions.api.Acts.load;
+import static br.com.caelum.vraptor.actions.api.Acts.pagination;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;

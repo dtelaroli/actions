@@ -1,6 +1,6 @@
 package br.com.caelum.vraptor.actions.core;
 
-import static br.com.caelum.vraptor.actions.api.Databases.delete;
+import static br.com.caelum.vraptor.actions.api.Dbs.delete;
 
 import javax.inject.Inject;
 

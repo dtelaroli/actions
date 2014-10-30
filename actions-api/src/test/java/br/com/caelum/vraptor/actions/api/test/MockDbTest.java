@@ -1,8 +1,8 @@
 package br.com.caelum.vraptor.actions.api.test;
 
-import static br.com.caelum.vraptor.actions.api.Databases.delete;
-import static br.com.caelum.vraptor.actions.api.Databases.find;
-import static br.com.caelum.vraptor.actions.api.Databases.persist;
+import static br.com.caelum.vraptor.actions.api.Dbs.delete;
+import static br.com.caelum.vraptor.actions.api.Dbs.find;
+import static br.com.caelum.vraptor.actions.api.Dbs.persist;
 
 import org.junit.Before;
 import org.junit.Test;

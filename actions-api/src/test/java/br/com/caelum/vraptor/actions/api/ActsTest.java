@@ -1,10 +1,10 @@
 package br.com.caelum.vraptor.actions.api;
 
-import static br.com.caelum.vraptor.actions.api.Actions.delete;
-import static br.com.caelum.vraptor.actions.api.Actions.list;
-import static br.com.caelum.vraptor.actions.api.Actions.load;
-import static br.com.caelum.vraptor.actions.api.Actions.pagination;
-import static br.com.caelum.vraptor.actions.api.Actions.persist;
+import static br.com.caelum.vraptor.actions.api.Acts.delete;
+import static br.com.caelum.vraptor.actions.api.Acts.list;
+import static br.com.caelum.vraptor.actions.api.Acts.load;
+import static br.com.caelum.vraptor.actions.api.Acts.pagination;
+import static br.com.caelum.vraptor.actions.api.Acts.persist;
 import static org.hamcrest.Matchers.typeCompatibleWith;
 import static org.junit.Assert.assertThat;
 
@@ -16,7 +16,7 @@ import br.com.caelum.vraptor.actions.api.action.LoadAction;
 import br.com.caelum.vraptor.actions.api.action.PaginationAction;
 import br.com.caelum.vraptor.actions.api.action.PersistAction;
 
-public class ActionsTest {
+public class ActsTest {
 
 	@Test
 	public void shouldReturnListAllAction() {

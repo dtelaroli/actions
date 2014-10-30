@@ -166,5 +166,23 @@ class MyDb implements Database {
 #### Uso
 
 ```Java
-db.use(MyDb.class).myMethod();
+class MyAction implements Action {
+
+	/**
+	 * @deprecated
+	 */
+	protected MyAction() {
+		this(null);
+	}
+
+	@Inject
+	public MyAction(Db db) {
+		this.db = db;
+	}
+	
+	public void myMethod() {
+		db.use(MyDb.class).myMethod();
+	}
+
+}
 ```

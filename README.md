@@ -113,7 +113,7 @@ public class UserController {
 	@Post
 	public void insert(@NotNull @Valid User user) throws Exception {
 		onErrorRedirect();
-		act.as(persist()).insert(user).andRedirectTo(getClass()).view(user.getId());
+		act.as(persist()).insert(user).andRedirectTo(this).view(user.getId());
 		
 	}
 
@@ -124,12 +124,12 @@ public class UserController {
 	@Put("/{id}")
 	public void update(@NotNull @Valid User user) throws Exception {
 		onErrorRedirect();
-		act.as(persist()).update(user).andRedirectTo(getClass()).view(user.getId());
+		act.as(persist()).update(user).andRedirectTo(this).view(user.getId());
 	}
 	
 	@Delete("/{id}")
 	public void remove(Long id) {
-		act.as(delete()).by(User.class, id).andRedirectTo(getClass()).paginate();
+		act.as(delete()).by(User.class, id).andRedirectTo(this).paginate();
 	}
 	
 }

@@ -54,6 +54,7 @@ public class AbstractActionTest {
 	@Test
 	public void shouldReturnControllerForRedirect() {
 		assertThat(act.andRedirectTo(MyController.class), instanceOf(MyController.class));
+		assertThat(act.andRedirectTo(new MyController()), instanceOf(MyController.class));
 	}
 
 	@Test

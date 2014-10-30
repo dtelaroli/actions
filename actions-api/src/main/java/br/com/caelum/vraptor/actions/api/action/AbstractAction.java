@@ -37,6 +37,10 @@ public abstract class AbstractAction implements Activity {
 		return result().redirectTo(controller);
 	}
 	
+	public <T> T andRedirectTo(T controller) {
+		return result().redirectTo(controller);
+	}
+	
 	@Override
 	public AbstractAction withMessage(String message) {
 		this.message = message;

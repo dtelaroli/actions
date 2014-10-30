@@ -1,5 +1,6 @@
 package br.com.caelum.vraptor.actions.api.db.pagination;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.enterprise.inject.Vetoed;
@@ -7,19 +8,36 @@ import javax.enterprise.inject.Vetoed;
 @Vetoed
 public class Page<T> {
 
-	private int number;
-	private int limit;
+	private int number = 1;
+	private int limit = 20;
 	private List<T> list;
 	private int total;
 
 	public Page() {
 	}
 	
-	public Page(int pageNumber, int limit, int total, List<T> list) {
+	@SuppressWarnings("unchecked")
+	public Page(Object object) {
+		if(object instanceof List) {
+			this.list = (List<T>) object;
+		}
+		else {
+			this.list = (List<T>) Arrays.asList(object);
+		}
+		if(list != null && !list.isEmpty()) {
+			total = list.size();
+		}
+	}
+	
+	public Page(int pageNumber, int limit, List<T> list) {
+		this.list = list;
 		this.number = pageNumber;
 		this.limit = limit;
+	}
+	
+	public Page(int pageNumber, int limit, int total, List<T> list) {
+		this(pageNumber, limit, list);
 		this.total = total;
-		this.list = list;
 	}
 
 	public int getNumber() {

@@ -4,18 +4,22 @@ import static br.com.caelum.vraptor.actions.api.Actions.delete;
 import static br.com.caelum.vraptor.actions.api.Actions.list;
 import static br.com.caelum.vraptor.actions.api.Actions.load;
 import static br.com.caelum.vraptor.actions.api.Actions.pagination;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.junit.Assert.assertThat;
+
+import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.caelum.vraptor.actions.api.Act;
-import br.com.caelum.vraptor.actions.api.test.MockAct;
-
-import com.avaje.ebean.Model;
+import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.actions.api.db.pagination.Page;
+import br.com.caelum.vraptor.validator.Validator;
 
 public class MockActTest {
 
-	Act mock;
+	MockAct mock;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -24,22 +28,53 @@ public class MockActTest {
 
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbAll() {
-		mock.as(list()).all(Model.class);
+		mock.as(list()).all(MyModel.class);
 	}
 	
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbPersist() {
-		mock.as(load()).by(Model.class, 1);
+		mock.as(load()).by(MyModel.class, 1);
 	}
 	
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbDelete() {
-		mock.as(delete()).by(Model.class, 1L);
+		mock.as(delete()).by(MyModel.class, 1L);
 	}
 	
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbPaginate() {
-		mock.as(pagination()).page(1).limit(10).paginate(Model.class);
+		mock.as(pagination()).page(1).limit(10).paginate(MyModel.class);
+	}
+	
+	@Test
+	public void shouldReturnInstanceOfPageFromModel() {
+		mock.returning(new MyModel(1L));
+		Page<MyModel> page = mock.as(pagination()).page(1).limit(10).paginate(MyModel.class);
+		assertThat(page.getList().get(0).getId(), equalTo(1L));
+	}
+	
+	@Test
+	public void shouldReturnInstanceOfPageFromList() {
+		mock.returning(Arrays.asList(new MyModel(1L)));
+		Page<MyModel> page = mock.as(pagination()).page(1).limit(10).paginate(MyModel.class);
+		assertThat(page.getList().get(0).getId(), equalTo(1L));
+	}
+	
+	@Test
+	public void shouldReturnInstanceOfPageFromPage() {
+		mock.returning(new Page<>(new MyModel(1L)));
+		Page<MyModel> page = mock.as(pagination()).page(1).limit(10).paginate(MyModel.class);
+		assertThat(page.getList().get(0).getId(), equalTo(1L));
+	}
+	
+	@Test
+	public void shouldReturnMockResultInstance() {
+		assertThat(mock.result(), instanceOf(Result.class));
+	}
+	
+	@Test
+	public void shouldReturnMockValidatorInstance() {
+		assertThat(mock.validator(), instanceOf(Validator.class));
 	}
 
 }

@@ -1,9 +1,11 @@
 package br.com.caelum.vraptor.actions.api.db.pagination;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
@@ -123,5 +125,16 @@ public class PageTest {
 		page.setTotal(3);
 		page.setLimit(2);
 		assertThat(page.getLast(), equalTo(2));
+	}
+	
+	@Test
+	public void shouldSetListFromModel() {
+		assertThat(new Page<>(new MyModel()).getList().get(0), instanceOf(MyModel.class));
+	}
+	
+	@Test
+	public void shouldSetListFromList() {
+		List<MyModel> asList = Arrays.asList(new MyModel());
+		assertThat(new Page<>(asList).getList().get(0), instanceOf(MyModel.class));
 	}
 }

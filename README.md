@@ -193,9 +193,42 @@ class MyAction implements Action {
 
 Para valicitar os testes de controllers e actions foram criados estes mocks:
 
+Estes mocks escapam as funcionalidades para não disparar um NullPointerException. Se desejar configurar o retorno das actions é possível utilizar a função `returning(Object)`. O argumento informado será retornado pela função do mock.
+
 ```Java
 MockAct
+MockPaginationAction
 MockDb
+```
+
+Ex.:
+
+```Java
+public class MyControllerTest {
+
+	private MyController controller;
+	private MockAct act;
+	
+	@Before
+	public void setUp() throws Exception {
+		act = new MockAct().returning(new MyModel(1L, "Foo"));
+		
+		controller = new MyController(act);
+	}
+
+	@Test
+	public void shouldReturnPage() {
+		Page<MyModel> paginate = controller.paginate();
+		List<MyModel> list = paginate.getList();
+		MyModel model = list.get(0);
+
+		assertThat(paginate, instanceOf(Page.class));
+		assertThat(paginate.getPageSize(), equalTo(1));
+		assertThat(model.getId(), equalTo(1L));
+		assertThat(model.getName(), equalTo("Foo"));
+	}
+
+}
 ```
 
 ### DbUnit

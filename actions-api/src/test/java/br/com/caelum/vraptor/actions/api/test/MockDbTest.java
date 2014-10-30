@@ -9,17 +9,17 @@ import org.junit.Test;
 
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.db.IModel;
-import br.com.caelum.vraptor.actions.api.test.MockDatabase;
+import br.com.caelum.vraptor.actions.api.test.MockDb;
 
 import com.avaje.ebean.Model;
 
-public class MockDatabaseTest {
+public class MockDbTest {
 
 	Db mock;
 	
 	@Before
 	public void setUp() throws Exception {
-		mock = new MockDatabase();
+		mock = new MockDb();
 	}
 
 	@Test

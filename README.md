@@ -186,3 +186,18 @@ class MyAction implements Action {
 
 }
 ```
+
+## Tests
+
+### Mocks
+
+Para valicitar os testes de controllers e actions foram criados estes mocks:
+
+```Java
+MockAct
+MockDb
+```
+
+### DbUnit
+
+Para facilitar os testes de integração foi criado este [DbUnit Helper](https://github.com/dtelaroli/dbunit)

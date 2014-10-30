@@ -10,7 +10,7 @@ import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Vetoed
-public class MockAction extends AbstractMock implements Act {
+public class MockAct extends AbstractMock implements Act {
 
 	@Override
 	public <T extends Action> T as(Class<T> act) {

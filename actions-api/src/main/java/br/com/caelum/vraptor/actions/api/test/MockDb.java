@@ -6,7 +6,7 @@ import br.com.caelum.vraptor.actions.api.Database;
 import br.com.caelum.vraptor.actions.api.Db;
 
 @Vetoed
-public class MockDatabase extends AbstractMock implements Db {
+public class MockDb extends AbstractMock implements Db {
 
 	@Override
 	public <T extends Database> T use(Class<T> db) {

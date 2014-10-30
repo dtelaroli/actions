@@ -9,17 +9,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.actions.api.Act;
-import br.com.caelum.vraptor.actions.api.test.MockAction;
+import br.com.caelum.vraptor.actions.api.test.MockAct;
 
 import com.avaje.ebean.Model;
 
-public class MockActionTest {
+public class MockActTest {
 
 	Act mock;
 	
 	@Before
 	public void setUp() throws Exception {
-		mock = new MockAction();
+		mock = new MockAct();
 	}
 
 	@Test

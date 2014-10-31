@@ -37,7 +37,7 @@ public abstract class AbstractAction implements Activity {
 		return result().redirectTo(controller);
 	}
 	
-	public <T> T andRedirectTo(T controller) {
+	public <T> T redirectTo(T controller) {
 		return result().redirectTo(controller);
 	}
 	

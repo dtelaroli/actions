@@ -8,5 +8,5 @@ public interface DeleteAction extends Activity {
 
 	<T> T andRedirectTo(Class<T> controller);
 
-	<T> T andRedirectTo(T controller);
+	<T> T redirectTo(T controller);
 }

@@ -120,7 +120,7 @@ public class UserController {
 	@Post
 	public void insert(@NotNull @Valid User user) throws Exception {
 		onErrorRedirect();
-		act.as(persist()).insert(user).andRedirectTo(this).view(user.getId());
+		act.as(persist()).insert(user).redirectTo(this).view(user.getId());
 		
 	}
 
@@ -131,12 +131,12 @@ public class UserController {
 	@Put("/{id}")
 	public void update(@NotNull @Valid User user) throws Exception {
 		onErrorRedirect();
-		act.as(persist()).update(user).andRedirectTo(this).view(user.getId());
+		act.as(persist()).update(user).redirectTo(this).view(user.getId());
 	}
 	
 	@Delete("/{id}")
 	public void remove(Long id) {
-		act.as(delete()).by(User.class, id).andRedirectTo(this).paginate();
+		act.as(delete()).by(User.class, id).redirectTo(this).paginate();
 	}
 	
 }
@@ -228,8 +228,7 @@ public class MyControllerTest {
 	@Test
 	public void shouldReturnPage() {
 		Page<MyModel> paginate = controller.paginate();
-		List<MyModel> list = paginate.getList();
-		MyModel model = list.get(0);
+		MyModel model = paginate.getList().get(0);
 
 		assertThat(paginate, instanceOf(Page.class));
 		assertThat(paginate.getPageSize(), equalTo(1));

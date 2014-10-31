@@ -148,11 +148,9 @@ public class UserController {
 
 Podem ser injetados através da interface `Db`.
 
-```Java
 - FindAction: `Dbs.find()`
 - PersistDb: `Dbs.persist()`
 - DeleteDb: `Dbs.delete()`
-```
 
 ### Criando as seus Databases
 
@@ -204,7 +202,11 @@ Estes mocks escapam as funcionalidades para não disparar um NullPointerExceptio
 
 ```Java
 MockAct
+MockListAction
+MockLoadAction
 MockPaginationAction
+MockPersistAction
+MockDeleteAction
 MockDb
 ```
 

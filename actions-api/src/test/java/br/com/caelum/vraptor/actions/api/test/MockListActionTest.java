@@ -14,22 +14,24 @@ import org.junit.Test;
 public class MockListActionTest {
 
 	private MockListAction mock;
+	private MyModel model;
 	
 	@Before
 	public void setUp() throws Exception {
 		mock = new MockListAction();
+		model = new MyModel(1L);
 	}
 
 	@Test
-	public void shouldReturnPageFromModel() {
-		List<MyModel> list = mock.returning(new MyModel(1L)).all(MyModel.class);
+	public void shouldReturnFromModel() {
+		List<MyModel> list = mock.returning(model).all(MyModel.class);
 		assertThat(list.get(0), notNullValue());
 		assertThat(list.get(0).getId(), equalTo(1L));
 	}
 	
 	@Test
-	public void shouldReturnPageFromList() {
-		List<MyModel> list = mock.returning(Arrays.asList(new MyModel(1L))).all(MyModel.class);
+	public void shouldReturnFromList() {
+		List<MyModel> list = mock.returning(Arrays.asList(model)).all(MyModel.class);
 		assertThat(list.get(0), notNullValue());
 		assertThat(list.get(0).getId(), equalTo(1L));
 	}

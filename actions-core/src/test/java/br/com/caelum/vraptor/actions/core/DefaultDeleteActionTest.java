@@ -47,7 +47,7 @@ public class DefaultDeleteActionTest {
 	
 	@Test
 	public void shouldReturnControllerInstance() {
-		MyController controller = act.by(MyModel.class, 1l).andRedirectTo(MyController.class);
+		MyController controller = act.by(MyModel.class, 1l).redirectTo(MyController.class);
 		assertThat(controller, instanceOf(MyController.class));
 	}
 	

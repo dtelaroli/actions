@@ -114,7 +114,7 @@ public class MockActTest {
 	
 	@Test
 	public void shouldRedirectAfterDelete() {
-		mock.as(delete()).by(MyModel.class, 1L).andRedirectTo(MyController.class).index();
+		mock.as(delete()).by(MyModel.class, 1L).redirectTo(MyController.class).index();
 		verify(result).redirectTo(MyController.class);
 	}
 }

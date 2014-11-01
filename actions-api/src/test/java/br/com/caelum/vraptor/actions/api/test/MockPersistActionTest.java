@@ -60,7 +60,7 @@ public class MockPersistActionTest {
 	
 	@Test
 	public void shouldRedirect() {
-		mock.update(new MyModel()).andRedirectTo(MyController.class).index();
+		mock.update(new MyModel()).redirectTo(MyController.class).index();
 		verify(result).redirectTo(MyController.class);
 	}
 }

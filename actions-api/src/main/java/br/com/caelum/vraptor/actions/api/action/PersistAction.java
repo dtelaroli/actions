@@ -12,8 +12,8 @@ public interface PersistAction extends Activity {
 
 	<T> T andReturn();
 
-	<T> T andRedirectTo(Class<T> controller);
-	
 	<T> T redirectTo(T controller);
+
+	<T> T redirectTo(Class<T> controller);
 
 }

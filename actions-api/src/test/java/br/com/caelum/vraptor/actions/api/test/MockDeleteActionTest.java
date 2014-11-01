@@ -39,7 +39,7 @@ public class MockDeleteActionTest {
 	
 	@Test
 	public void shouldRedirect() {
-		mock.by(MyModel.class, 1L).andRedirectTo(MyController.class).index();
+		mock.by(MyModel.class, 1L).redirectTo(MyController.class).index();
 		verify(result).redirectTo(MyController.class);
 	}
 }

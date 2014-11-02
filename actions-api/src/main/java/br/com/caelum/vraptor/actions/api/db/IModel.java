@@ -1,6 +1,8 @@
 package br.com.caelum.vraptor.actions.api.db;
 
-public interface IModel {
+import java.io.Serializable;
+
+public interface IModel extends Serializable {
 
 	Object getId();
 

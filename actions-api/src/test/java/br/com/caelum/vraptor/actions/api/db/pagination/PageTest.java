@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import models.MyModel;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import br.com.caelum.vraptor.actions.api.db.pagination.Page;
-import br.com.caelum.vraptor.actions.api.test.MyModel;
 
 public class PageTest {
 

@@ -18,11 +18,15 @@
 			<artifactId>actions-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>br.com.caelum.vraptor</groupId>
 			<artifactId>dbunit-ebean</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.avaje.ebeanorm</groupId>
+			<artifactId>avaje-ebeanorm</artifactId>
+			<version>${ebean.version}</version>
 		</dependency>
 	</dependencies>
 	

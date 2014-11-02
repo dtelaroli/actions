@@ -65,11 +65,7 @@
 			<groupId>org.avaje.ebeanorm</groupId>
 			<artifactId>avaje-ebeanorm</artifactId>
 			<version>${ebean.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.avaje.ebeanorm</groupId>
-			<artifactId>avaje-ebeanorm-agent</artifactId>
-			<version>4.1.6</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -116,7 +112,10 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<execute></execute>
+										<execute>
+											<runOnConfiguration>true</runOnConfiguration>
+											<runOnIncremental>true</runOnIncremental>
+										</execute>
 									</action>
 								</pluginExecution>
 							</pluginExecutions>

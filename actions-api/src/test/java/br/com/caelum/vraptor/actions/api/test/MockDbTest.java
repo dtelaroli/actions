@@ -4,14 +4,15 @@ import static br.com.caelum.vraptor.actions.api.Dbs.delete;
 import static br.com.caelum.vraptor.actions.api.Dbs.find;
 import static br.com.caelum.vraptor.actions.api.Dbs.persist;
 
+import javax.enterprise.inject.Model;
+
+import models.MyModel;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.db.IModel;
-import br.com.caelum.vraptor.actions.api.test.MockDb;
-
-import com.avaje.ebean.Model;
 
 public class MockDbTest {
 
@@ -24,7 +25,7 @@ public class MockDbTest {
 
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbAll() {
-		mock.use(find()).all(Model.class);
+		mock.use(find()).all(MyModel.class);
 	}
 	
 	@Test

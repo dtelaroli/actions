@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
+import models.MyModel;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +15,6 @@ import org.mockito.Spy;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.test.MyController;
-import br.com.caelum.vraptor.actions.api.test.MyModel;
 import br.com.caelum.vraptor.util.test.MockResult;
 
 public class AbstractActionTest {

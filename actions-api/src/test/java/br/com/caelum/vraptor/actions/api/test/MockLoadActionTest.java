@@ -22,7 +22,8 @@ public class MockLoadActionTest {
 
 	@Test
 	public void shouldReturnFromModel() {
-		MyModel by = mock.returning(model).by(MyModel.class, 1L);
+		mock.putReturn(model.getClass(), model);
+		MyModel by = mock.by(MyModel.class, 1L);
 		assertThat(by, notNullValue());
 		assertThat(by.getId(), equalTo(1L));
 	}

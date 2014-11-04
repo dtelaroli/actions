@@ -3,7 +3,9 @@ package br.com.caelum.vraptor.actions.api.test;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Action;
@@ -23,6 +25,7 @@ public abstract class AbstractMock implements Action {
 	private final Db db;
 	private String message;
 	private Validator validator;
+	private Map<Class<?>, Object> returns = new HashMap<>();
 
 	public AbstractMock() {
 		this(new MockResult());
@@ -110,6 +113,16 @@ public abstract class AbstractMock implements Action {
 		};
 	}
 
-	public abstract Action returning(Object obj);
+	public Map<Class<?>, Object> getReturnMap() {
+		return returns;
+	}
 	
+	public Object get(Class<?> type) {
+		return returns.get(type);
+	}
+	
+	public AbstractMock putReturn(Class<?> key, Object value) {
+		returns.put(key, value);
+		return this;
+	}
 }

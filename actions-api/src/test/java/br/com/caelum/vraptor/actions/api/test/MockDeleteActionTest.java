@@ -26,7 +26,8 @@ public class MockDeleteActionTest {
 
 	@Test
 	public void shouldReturn1() {
-		Integer andReturn = mock.returning(1).by(MyModel.class, 1L).andReturn();
+		mock.putReturn(Integer.class, 1);
+		Integer andReturn = mock.by(MyModel.class, 1L).andReturn();
 		assertThat(andReturn, notNullValue());
 		assertThat(andReturn, equalTo(1));
 	}

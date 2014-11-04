@@ -4,9 +4,6 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
-
-import java.util.Arrays;
-
 import models.MyModel;
 
 import org.junit.Before;
@@ -17,15 +14,18 @@ import br.com.caelum.vraptor.actions.api.db.pagination.Page;
 public class MockPaginationActionTest {
 
 	private MockPaginationAction mock;
+	private MyModel myModel;
 	
 	@Before
 	public void setUp() throws Exception {
 		mock = new MockPaginationAction();
+		myModel = new MyModel(1L);
 	}
 
 	@Test
 	public void shouldReturnPageFromModel() {
-		Page<MyModel> page = mock.returning(new MyModel(1L)).page(2).limit(10).paginate(MyModel.class);
+		mock.putReturn(myModel.getClass(), myModel);
+		Page<MyModel> page = mock.page(2).limit(10).paginate(MyModel.class);
 		assertThat(page, notNullValue());
 		assertThat(page.getNumber(), equalTo(2));
 		assertThat(page.getLimit(), equalTo(10));
@@ -34,7 +34,8 @@ public class MockPaginationActionTest {
 	
 	@Test
 	public void shouldReturnPageFromList() {
-		Page<MyModel> page = mock.returning(Arrays.asList(new MyModel(1L))).page(2).limit(10).paginate(MyModel.class);
+		mock.putReturn(myModel.getClass(), myModel);
+		Page<MyModel> page = mock.page(2).limit(10).paginate(MyModel.class);
 		assertThat(page, notNullValue());
 		assertThat(page.getNumber(), equalTo(2));
 		assertThat(page.getLimit(), equalTo(10));
@@ -43,7 +44,8 @@ public class MockPaginationActionTest {
 	
 	@Test
 	public void shouldReturnPageFromPage() {
-		Page<MyModel> page = mock.returning(new Page<>(new MyModel(1L))).page(2).limit(10).paginate(MyModel.class);
+		mock.putReturn(myModel.getClass(), myModel);
+		Page<MyModel> page = mock.page(2).limit(10).paginate(MyModel.class);
 		assertThat(page, notNullValue());
 		assertThat(page.getNumber(), equalTo(2));
 		assertThat(page.getLimit(), equalTo(10));

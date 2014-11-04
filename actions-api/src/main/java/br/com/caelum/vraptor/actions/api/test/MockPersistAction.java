@@ -11,7 +11,6 @@ import br.com.caelum.vraptor.validator.Validator;
 @Vetoed
 public class MockPersistAction extends AbstractMock implements PersistAction {
 
-	private Object obj;
 	private Object original;
 	
 	public MockPersistAction() {
@@ -22,18 +21,13 @@ public class MockPersistAction extends AbstractMock implements PersistAction {
 		super(result, db, validator);
 	}
 
-	@Override
-	public MockPersistAction returning(Object obj) {
-		this.obj = obj;
-		return this;
-	}
-
 	@SuppressWarnings("unchecked")
 	private <T> T returnObj() {
-		if(obj == null) {
+		Object object = get(original.getClass());
+		if(object == null) {
 			return (T) original;
 		}
-		return (T) obj;
+		return (T) object;
 	}
 
 	@Override

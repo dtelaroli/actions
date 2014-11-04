@@ -14,8 +14,6 @@ import br.com.caelum.vraptor.validator.Validator;
 @Vetoed
 public class MockListAction extends AbstractMock implements ListAction {
 
-	private Object obj;
-	
 	public MockListAction() {
 		super();
 	}
@@ -27,19 +25,14 @@ public class MockListAction extends AbstractMock implements ListAction {
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> List<T> all(Class<T> type) {
-		if(obj == null) {
+		Object object = get(type);
+		if(getReturnMap().isEmpty()) {
 			return Collections.emptyList();
 		}
-		else if(obj instanceof List) {
-			return (List<T>) obj;
+		else if(object instanceof List) {
+			return (List<T>) object;
 		}
-		return (List<T>) Arrays.asList(obj);
+		return (List<T>) Arrays.asList(object);
 	}
 
-	@Override
-	public MockListAction returning(Object obj) {
-		this.obj = obj;
-		return this;
-	}
-	
 }

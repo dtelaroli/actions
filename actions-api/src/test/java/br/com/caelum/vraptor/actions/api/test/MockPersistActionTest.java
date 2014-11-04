@@ -30,7 +30,8 @@ public class MockPersistActionTest {
 	@Test
 	public void shouldReturnFromModelSave() {
 		MyModel myModel = new MyModel();
-		MyModel saved = mock.returning(model).save(myModel).andReturn();
+		mock.putReturn(model.getClass(), model);
+		MyModel saved = mock.save(myModel).andReturn();
 		assertThat(saved, notNullValue());
 		assertThat(saved.getId(), equalTo(1L));
 	}
@@ -38,7 +39,8 @@ public class MockPersistActionTest {
 	@Test
 	public void shouldReturnFromModelInsert() {
 		MyModel myModel = new MyModel();
-		MyModel saved = mock.returning(model).insert(myModel).andReturn();
+		mock.putReturn(model.getClass(), model);
+		MyModel saved = mock.insert(myModel).andReturn();
 		assertThat(saved, notNullValue());
 		assertThat(saved.getId(), equalTo(1L));
 	}
@@ -46,7 +48,8 @@ public class MockPersistActionTest {
 	@Test
 	public void shouldReturnFromModelUpdate() {
 		MyModel myModel = new MyModel();
-		MyModel saved = mock.returning(model).update(myModel).andReturn();
+		mock.putReturn(model.getClass(), model);
+		MyModel saved = mock.update(myModel).andReturn();
 		assertThat(saved, notNullValue());
 		assertThat(saved.getId(), equalTo(1L));
 	}

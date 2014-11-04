@@ -15,7 +15,6 @@ public class MockPaginationAction extends AbstractMock implements PaginationActi
 
 	private int page = 1;
 	private int limit = 20;
-	private Object obj;
 	
 	public MockPaginationAction() {
 		super();
@@ -41,14 +40,15 @@ public class MockPaginationAction extends AbstractMock implements PaginationActi
 	@Override
 	public <T> Page<T> paginate(Class<T> type) {
 		Page<T> returning = null;
-		if(obj == null) {
+		Object object = get(type);
+		if(object == null) {
 			returning = new Page<T>(Collections.emptyList());
 		}
-		else if(obj instanceof Page){
-			returning = (Page<T>) obj;
+		else if(object instanceof Page){
+			returning = (Page<T>) object;
 		}
 		else {
-			returning = new Page<T>(obj);
+			returning = new Page<T>(object);
 		}
 		
 		returning.setNumber(page);
@@ -57,10 +57,4 @@ public class MockPaginationAction extends AbstractMock implements PaginationActi
 		return returning;
 	}
 
-	@Override
-	public MockPaginationAction returning(Object obj) {
-		this.obj = obj;
-		return this;
-	}
-	
 }

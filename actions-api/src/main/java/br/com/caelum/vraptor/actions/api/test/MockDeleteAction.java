@@ -10,8 +10,6 @@ import br.com.caelum.vraptor.validator.Validator;
 @Vetoed
 public class MockDeleteAction extends AbstractMock implements DeleteAction {
 
-	private Object obj;
-	
 	public MockDeleteAction() {
 		super();
 	}
@@ -38,16 +36,11 @@ public class MockDeleteAction extends AbstractMock implements DeleteAction {
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T andReturn() {
-		if(obj == null) {
+		Object object = get(Integer.class);
+		if(object == null) {
 			return (T) Integer.valueOf(0);
 		}
-		return (T) obj;
-	}
-
-	@Override
-	public DeleteAction returning(Object obj) {
-		this.obj = obj;
-		return this;
+		return (T) object;
 	}
 	
 }

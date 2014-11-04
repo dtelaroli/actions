@@ -65,7 +65,14 @@ public class MockAct extends AbstractMock implements Act {
 		return proxy(act);
 	}
 
-	public MockAct returning(Object obj) {
+	public MockAct returning(Object... objs) {
+		for (Object object : objs) {
+			returnItem(object);
+		}
+		return this;
+	}
+
+	private void returnItem(Object obj) {
 		Class<? extends Object> type = obj.getClass();
 		if(obj instanceof List) {
 			List<?> list = (List<?>) obj;
@@ -85,7 +92,6 @@ public class MockAct extends AbstractMock implements Act {
 		mockLoad.putReturn(type, obj);
 		mockPersist.putReturn(type, obj);
 		mockDelete.putReturn(type, obj);
-		return this;
 	}
 
 	private Class<? extends Object> getType(Class<? extends Object> type,

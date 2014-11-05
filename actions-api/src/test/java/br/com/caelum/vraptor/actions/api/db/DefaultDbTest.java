@@ -16,7 +16,7 @@ import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
 import br.com.caelum.vraptor.ioc.Container;
 
-public class DefaultDatabaseTest {
+public class DefaultDbTest {
 
 	private Db dbs;
 	@Mock private Container container;
@@ -41,7 +41,7 @@ public class DefaultDatabaseTest {
 			}
 		});
 		
-		dbs = new DefaultDataBase(container);
+		dbs = new DefaultDataDb(container);
 	}
 
 	@Test

@@ -6,19 +6,19 @@ import br.com.caelum.vraptor.actions.api.Database;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.ioc.Container;
 
-public class DefaultDataBase implements Db {
+public class DefaultDataDb implements Db {
 
 	private final Container container;
 
 	/**
 	 * @deprecated CDI eyes-only
 	 */
-	protected DefaultDataBase() {
+	protected DefaultDataDb() {
 		this(null);
 	}
 	
 	@Inject
-	public DefaultDataBase(Container container) {
+	public DefaultDataDb(Container container) {
 		this.container = container;
 	}
 

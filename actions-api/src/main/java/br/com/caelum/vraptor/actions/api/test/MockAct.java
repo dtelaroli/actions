@@ -13,6 +13,7 @@ import br.com.caelum.vraptor.actions.api.action.ListAction;
 import br.com.caelum.vraptor.actions.api.action.LoadAction;
 import br.com.caelum.vraptor.actions.api.action.PaginationAction;
 import br.com.caelum.vraptor.actions.api.action.PersistAction;
+import br.com.caelum.vraptor.actions.api.db.IModel;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
@@ -101,6 +102,36 @@ public class MockAct extends AbstractMock implements Act {
 			type = item.getClass();
 		}
 		return type;
+	}
+	
+	@Override
+	public <T> List<T> listAll(Class<T> type) {
+		return mockList.all(type);
+	}
+
+	@Override
+	public <T> T loadBy(Class<T> type, Object id) {
+		return mockLoad.by(type, id);
+	}
+
+	@Override
+	public <T> DeleteAction deleteBy(Class<T> type, Object id) {
+		return mockDelete.by(type, id);
+	}
+
+	@Override
+	public <T> PersistAction save(IModel object) {
+		return mockPersist.save(object);
+	}
+
+	@Override
+	public <T> PersistAction insert(T object) {
+		return mockPersist.insert(object);
+	}
+
+	@Override
+	public <T> PersistAction update(T object) {
+		return mockPersist.update(object);
 	}
 
 }

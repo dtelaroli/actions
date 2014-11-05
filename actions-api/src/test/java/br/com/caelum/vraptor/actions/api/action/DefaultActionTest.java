@@ -55,6 +55,11 @@ public class DefaultActionTest {
 			public <T> List<T> all(Class<T> type) {
 				return null;
 			}
+
+			@Override
+			public Action include(String key, Object value) {
+				return null;
+			}
 		});
 		when(container.instanceFor(Result.class)).thenReturn(new MockResult());
 		when(container.instanceFor(Validator.class)).thenReturn(new MockValidator());

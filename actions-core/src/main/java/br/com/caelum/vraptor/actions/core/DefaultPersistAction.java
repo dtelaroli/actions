@@ -12,8 +12,6 @@ import br.com.caelum.vraptor.actions.api.db.IModel;
 
 public class DefaultPersistAction extends AbstractAction implements PersistAction {
 
-	private Object objectDb;
-
 	/**
 	 * @deprecated CDI eyes-only
 	 */
@@ -28,7 +26,9 @@ public class DefaultPersistAction extends AbstractAction implements PersistActio
 
 	@Override
 	public PersistAction save(IModel object) {
-		objectDb = db().use(persist()).save(object);
+		Object dbObject = db().use(persist()).save(object);
+		withDbObject(dbObject);
+		
 		setMessage("success.save");
 		return this;
 	}
@@ -41,21 +41,20 @@ public class DefaultPersistAction extends AbstractAction implements PersistActio
 
 	@Override
 	public <T> PersistAction insert(T object) {
-		objectDb = db().use(persist()).insert(object);
+		T dbObject = db().use(persist()).insert(object);
+		withDbObject(dbObject);
+		
 		setMessage("success.insert");
 		return this;
 	}
 	
 	@Override
 	public <T> PersistAction update(T object) {
-		objectDb = db().use(persist()).update(object);
+		T dbObject = db().use(persist()).update(object);
+		withDbObject(dbObject);
+		
 		setMessage("success.update");
 		return this;
-	}
-
-	@Override
-	protected Object dbObject() {
-		return objectDb;
 	}
 
 }

@@ -32,25 +32,23 @@ public class MockPersistAction extends AbstractMock implements PersistAction {
 
 	@Override
 	public <T> PersistAction insert(T object) {
-		this.original = object;
+		return execute(object);
+	}
+
+	private <T> PersistAction execute(T object) {
+		original = object;
+		withDbObject(returnObj());
 		return this;
 	}
 
 	@Override
 	public <T> PersistAction update(T object) {
-		original = object;
-		return this;
+		return execute(object);
 	}
 
 	@Override
 	public PersistAction save(IModel object) {
-		original = object;
-		return this;
-	}
-
-	@Override
-	public <T> T andReturn() {
-		return returnObj();
+		return execute(object);
 	}
 
 	@Override
@@ -62,5 +60,5 @@ public class MockPersistAction extends AbstractMock implements PersistAction {
 	public <T> T redirectTo(T controller) {
 		return result().redirectTo(controller);
 	}
-	
+
 }

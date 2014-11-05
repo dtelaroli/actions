@@ -12,7 +12,6 @@ import br.com.caelum.vraptor.actions.api.action.DeleteAction;
 public class DefaultDeleteAction extends AbstractAction implements DeleteAction {
 
 	private static final String SUCCESS_MESSAGE = "success.delete";
-	private Integer dbObject;
 
 	/**
 	 * @deprecated CDI eyes-only
@@ -33,15 +32,11 @@ public class DefaultDeleteAction extends AbstractAction implements DeleteAction 
 	}
 
 	private <T> void execute(Class<T> type, Object id) {
-		dbObject = db().use(delete()).by(type, id);
+		Integer dbObject = db().use(delete()).by(type, id);
+		withDbObject(dbObject);
 		if(message() == null) {
 			withMessage(SUCCESS_MESSAGE);
 		}
-	}
-
-	@Override
-	protected Object dbObject() {
-		return dbObject;
 	}
 
 }

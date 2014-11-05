@@ -13,11 +13,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.action.PersistAction;
 import br.com.caelum.vraptor.actions.api.db.PersistDb;
-import br.com.caelum.vraptor.util.test.MockResult;
+import br.com.caelum.vraptor.util.test.MockSerializationResult;
 
 public class DefaultPersistActionTest {
 
@@ -25,7 +24,7 @@ public class DefaultPersistActionTest {
 	private MyModel model;
 	@Mock private Db db;
 	@Mock private PersistDb saveDb;
-	@Spy private Result result = new MockResult();
+	@Spy private MockSerializationResult result = new MockSerializationResult();
 	
 	@Before
 	public void setUp() throws Exception {

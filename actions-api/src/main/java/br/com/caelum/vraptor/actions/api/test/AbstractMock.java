@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.actions.api.Action;
 import br.com.caelum.vraptor.actions.api.Db;
+import br.com.caelum.vraptor.actions.api.action.AbstractAction;
 import br.com.caelum.vraptor.proxy.JavassistProxifier;
 import br.com.caelum.vraptor.proxy.MethodInvocation;
 import br.com.caelum.vraptor.proxy.Proxifier;
@@ -18,12 +18,9 @@ import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.Validator;
 
-public abstract class AbstractMock implements Action {
+public abstract class AbstractMock extends AbstractAction {
 
 	private final Proxifier proxifier;
-	private final Result result;
-	private final Db db;
-	private String message;
 	private Validator validator;
 	private Map<Class<?>, Object> returns = new HashMap<>();
 
@@ -35,14 +32,17 @@ public abstract class AbstractMock implements Action {
 		this(result, null, new MockValidator());
 	}
 	
+	public AbstractMock(Result result, Db db) {
+		this(result, db, new MockValidator());
+	}
+	
 	public AbstractMock(Result result, Db db, Validator validator) {
 		this(new JavassistProxifier(), result, db, validator);
 	}
 
 	public AbstractMock(Proxifier proxifier, Result result, Db db, Validator validator) {
+		super(result, db);
 		this.proxifier = proxifier;
-		this.result = result;
-		this.db = db;
 		this.validator = validator;
 	}
 
@@ -55,26 +55,8 @@ public abstract class AbstractMock implements Action {
 		return getProxifier().proxify(type, returnOnFinalMethods(type));
 	}
 	
-	public Result result() {
-		return result;
-	}
-	
 	public Validator validator() {
 		return validator;
-	}
-	
-	public Db db() {
-		return db;
-	}
-	
-	public Action withMessage(String message) {
-		this.message = message;
-		result.include("message", message);
-		return this;
-	}
-
-	public String message() {
-		return message;
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -125,4 +107,5 @@ public abstract class AbstractMock implements Action {
 		returns.put(key, value);
 		return this;
 	}
+	
 }

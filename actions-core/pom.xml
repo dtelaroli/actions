@@ -28,6 +28,5 @@
 			<artifactId>weld-servlet-core</artifactId>
 			<version>${weld.version}</version>
 		</dependency>
-
 	</dependencies>
 </project>

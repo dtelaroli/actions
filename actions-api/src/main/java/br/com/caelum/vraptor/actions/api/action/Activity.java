@@ -13,5 +13,7 @@ public interface Activity extends Action {
 	Result result();
 
 	String message();
-
+	
+	Action include(String key, Object value);
+	
 }

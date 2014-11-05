@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.api.action;
+package br.com.caelum.vraptor.actions.core;
 
 import javax.inject.Inject;
 

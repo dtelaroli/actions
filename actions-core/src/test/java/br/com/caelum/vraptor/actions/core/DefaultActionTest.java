@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.api.action;
+package br.com.caelum.vraptor.actions.core;
 
 import static br.com.caelum.vraptor.actions.api.Acts.list;
 import static org.hamcrest.Matchers.instanceOf;
@@ -16,6 +16,8 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Act;
 import br.com.caelum.vraptor.actions.api.Action;
 import br.com.caelum.vraptor.actions.api.Db;
+import br.com.caelum.vraptor.actions.api.action.ListAction;
+import br.com.caelum.vraptor.actions.core.DefaultAction;
 import br.com.caelum.vraptor.ioc.Container;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;

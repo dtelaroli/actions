@@ -13,7 +13,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.test.MyController;
 import br.com.caelum.vraptor.util.test.MockSerializationResult;
@@ -38,11 +37,6 @@ public class AbstractActionTest {
 	}
 	
 	@Test
-	public void shouldReturnResultInstance() {
-		assertThat(act.result(), instanceOf(Result.class));
-	}
-	
-	@Test
 	public void shouldReturnObject() {
 		assertThat(act.withDbObject(new MyModel()).andReturn(), instanceOf(MyModel.class));
 	}
@@ -57,12 +51,6 @@ public class AbstractActionTest {
 	public void shouldSetMessage() {
 		assertThat(act.withMessage("foo").message(), equalTo("foo"));
 		assertThat(result.included().get("message"), equalTo("foo"));
-	}
-	
-	@Test
-	public void shouldIncludeObject() {
-		act.include("foo", "bar");
-		assertThat(act.result().included().get("foo"), equalTo("bar"));
 	}
 	
 	@Test

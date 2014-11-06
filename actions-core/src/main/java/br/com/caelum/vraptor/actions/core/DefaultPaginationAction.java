@@ -8,6 +8,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.action.AbstractAction;
 import br.com.caelum.vraptor.actions.api.action.PaginationAction;
+import br.com.caelum.vraptor.actions.api.db.order.Order;
 import br.com.caelum.vraptor.actions.api.db.pagination.DefaultPageConfig;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
 
@@ -15,6 +16,7 @@ public class DefaultPaginationAction extends AbstractAction implements Paginatio
 
 	private int page = 1;
 	private int limit;
+	private Order[] orders;
 
 	/**
 	 * @deprecated CDI eyes-only
@@ -31,7 +33,7 @@ public class DefaultPaginationAction extends AbstractAction implements Paginatio
 
 	@Override
 	public <T> Page<T> paginate(Class<T> type) {
-		return db().use(find()).paginate(type, page, limit);
+		return db().use(find()).with(orders).paginate(type, page, limit);
 	}
 
 	@Override
@@ -43,6 +45,12 @@ public class DefaultPaginationAction extends AbstractAction implements Paginatio
 	@Override
 	public PaginationAction limit(int limit) {
 		this.limit = limit;
+		return this;
+	}
+
+	@Override
+	public PaginationAction with(Order... orders) {
+		this.orders = orders;
 		return this;
 	}
 

@@ -20,7 +20,7 @@ import br.com.caelum.vraptor.actions.api.action.ListAction;
 import br.com.caelum.vraptor.actions.api.db.FindDb;
 import br.com.caelum.vraptor.actions.api.db.order.Order;
 
-public class DefaultListAllActionTest {
+public class DefaultListActionTest {
 
 	private ListAction act;
 	@Mock private Db db;

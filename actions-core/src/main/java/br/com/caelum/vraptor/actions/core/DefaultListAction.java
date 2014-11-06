@@ -16,7 +16,7 @@ import br.com.caelum.vraptor.actions.api.db.order.Order;
 @RequestScoped
 public class DefaultListAction extends AbstractAction implements ListAction {
 
-	private Order[] order;
+	private Order[] orders;
 
 	/**
 	 * @deprecated CDI eyes-only
@@ -32,11 +32,11 @@ public class DefaultListAction extends AbstractAction implements ListAction {
 	
 	@Override
 	public <T> List<T> all(Class<T> type) {
-		return db().use(find()).with(order).all(type);
+		return db().use(find()).with(orders).all(type);
 	}
 	
 	public ListAction with(Order... order) {
-		this.order = order;
+		this.orders = order;
 		return this;
 	}
 

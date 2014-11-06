@@ -83,4 +83,9 @@ public class DefaultAct implements Act {
 		return as(persist()).update(object);
 	}
 
+	@Override
+	public Act include(String key, Object object) {
+		result.include(key, object);
+		return this;
+	}
 }

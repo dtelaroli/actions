@@ -19,16 +19,6 @@ public class MockDeleteAction extends AbstractMock implements DeleteAction {
 	}
 
 	@Override
-	public <T> T redirectTo(Class<T> controller) {
-		return result().redirectTo(controller);
-	}
-
-	@Override
-	public <T> T redirectTo(T controller) {
-		return result().redirectTo(controller);
-	}
-
-	@Override
 	public <T> DeleteAction by(Class<T> type, Object id) {
 		return this;
 	}

@@ -51,14 +51,4 @@ public class MockPersistAction extends AbstractMock implements PersistAction {
 		return execute(object);
 	}
 
-	@Override
-	public <T> T redirectTo(Class<T> controller) {
-		return result().redirectTo(controller);
-	}
-
-	@Override
-	public <T> T redirectTo(T controller) {
-		return result().redirectTo(controller);
-	}
-
 }

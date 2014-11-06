@@ -1,5 +1,10 @@
 package br.com.caelum.vraptor.actions.api.test;
 
+import static br.com.caelum.vraptor.actions.api.Acts.delete;
+import static br.com.caelum.vraptor.actions.api.Acts.list;
+import static br.com.caelum.vraptor.actions.api.Acts.load;
+import static br.com.caelum.vraptor.actions.api.Acts.persist;
+
 import java.util.List;
 
 import javax.enterprise.inject.Vetoed;
@@ -106,32 +111,38 @@ public class MockAct extends AbstractMock implements Act {
 	
 	@Override
 	public <T> List<T> listAll(Class<T> type) {
-		return mockList.all(type);
+		return as(list()).all(type);
 	}
 
 	@Override
 	public <T> T loadBy(Class<T> type, Object id) {
-		return mockLoad.by(type, id);
+		return as(load()).by(type, id);
 	}
 
 	@Override
 	public <T> DeleteAction deleteBy(Class<T> type, Object id) {
-		return mockDelete.by(type, id);
+		return as(delete()).by(type, id);
 	}
 
 	@Override
 	public <T> PersistAction save(IModel object) {
-		return mockPersist.save(object);
+		return as(persist()).save(object);
 	}
 
 	@Override
 	public <T> PersistAction insert(T object) {
-		return mockPersist.insert(object);
+		return as(persist()).insert(object);
 	}
 
 	@Override
 	public <T> PersistAction update(T object) {
-		return mockPersist.update(object);
+		return as(persist()).update(object);
+	}
+
+	@Override
+	public Act include(String key, Object value) {
+		result().include(key, value);
+		return this;
 	}
 
 }

@@ -7,6 +7,7 @@ import javax.enterprise.inject.Vetoed;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.action.PaginationAction;
+import br.com.caelum.vraptor.actions.api.db.order.Order;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
 import br.com.caelum.vraptor.validator.Validator;
 
@@ -55,6 +56,11 @@ public class MockPaginationAction extends AbstractMock implements PaginationActi
 		returning.setLimit(limit);
 		
 		return returning;
+	}
+
+	@Override
+	public PaginationAction with(Order... asc) {
+		return this;
 	}
 
 }

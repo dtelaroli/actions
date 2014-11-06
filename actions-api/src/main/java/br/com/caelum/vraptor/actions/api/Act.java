@@ -15,6 +15,8 @@ public interface Act {
 	Result result();
 	
 	Validator validator();
+	
+	Act include(String key, Object value);
 
 	<T> List<T> listAll(Class<T> type);
 	

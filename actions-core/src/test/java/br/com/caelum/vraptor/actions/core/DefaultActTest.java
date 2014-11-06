@@ -23,6 +23,7 @@ import br.com.caelum.vraptor.actions.api.Act;
 import br.com.caelum.vraptor.actions.api.Action;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.action.ListAction;
+import br.com.caelum.vraptor.actions.api.db.order.Order;
 import br.com.caelum.vraptor.actions.api.test.MockDeleteAction;
 import br.com.caelum.vraptor.actions.api.test.MockListAction;
 import br.com.caelum.vraptor.actions.api.test.MockLoadAction;
@@ -43,35 +44,13 @@ public class DefaultActTest {
 		MockitoAnnotations.initMocks(this);
 		
 		when(container.instanceFor(list())).thenReturn(new ListAction() {
-			@Override
-			public Action withMessage(String message) {
-				return null;
-			}
-			
-			@Override
-			public Result result() {
-				return null;
-			}
-			
-			@Override
-			public String message() {
-				return null;
-			}
-			
-			@Override
-			public Db db() {
-				return null;
-			}
-			
-			@Override
-			public <T> List<T> all(Class<T> type) {
-				return null;
-			}
-
-			@Override
-			public Action include(String key, Object value) {
-				return null;
-			}
+			@Override public Action withMessage(String message) { return null; }
+			@Override public Result result() { return null; }
+			@Override public String message() { return null; }
+			@Override public Db db() { return null; }
+			@Override public <T> List<T> all(Class<T> type) { return null; }
+			@Override public Action include(String key, Object value) { return null; }
+			@Override public ListAction with(Order... order) { return null; }
 		});
 		when(container.instanceFor(Result.class)).thenReturn(new MockResult());
 		when(container.instanceFor(Validator.class)).thenReturn(new MockValidator());

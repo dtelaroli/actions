@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import br.com.caelum.vraptor.actions.api.Db;
+import br.com.caelum.vraptor.actions.api.db.order.Order;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
 import br.com.caelum.vraptor.ioc.Container;
 
@@ -26,19 +27,10 @@ public class DefaultDbTest {
 		MockitoAnnotations.initMocks(this);
 		
 		when(container.instanceFor(find())).thenReturn(new FindDb() {
-			@Override
-			public <T> Page<T> paginate(Class<T> type, int page, int limit) {
-				return null;
-			}
-			@Override
-			public <T> T by(Class<T> type, Object id) {
-				return null;
-			}
-			
-			@Override
-			public <T> List<T> all(Class<T> type) {
-				return null;
-			}
+			@Override public <T> Page<T> paginate(Class<T> type, int page, int limit) {return null;}
+			@Override public <T> T by(Class<T> type, Object id) {return null;}		
+			@Override public <T> List<T> all(Class<T> type) {return null;}
+			@Override public FindDb with(Order... order) {return null;}
 		});
 		
 		dbs = new DefaultDataDb(container);

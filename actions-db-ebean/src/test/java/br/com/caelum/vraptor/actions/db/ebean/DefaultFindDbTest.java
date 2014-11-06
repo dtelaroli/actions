@@ -15,6 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.actions.api.db.FindDb;
+import br.com.caelum.vraptor.actions.api.db.order.Order;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
 import br.com.caelum.vraptor.actions.db.ebean.DefaultFindDb;
 import br.com.caelum.vraptor.dbunit.ebean.DbUnitEbean;
@@ -62,4 +63,18 @@ public class DefaultFindDbTest {
 		assertThat(page.getPageSize(), equalTo(1));
 	}
 	
+	@Test
+	public void shouldReturnOrderedListOfMyModel() {
+		List<MyModel> all = db.with(Order.desc("name")).all(MyModel.class);
+		assertThat(all, notNullValue());
+		assertThat(all.get(0).getName(), equalTo("Name 3"));
+	}
+	
+	@Test
+	public void shouldReturnOrderedListPaginateOfMyModelPage2() {
+		Page<MyModel> page = db.with(Order.desc("name")).paginate(MyModel.class, 2, 2);
+		assertThat(page.getList(), not(empty()));
+		assertThat(page.getList().get(0).getId(), equalTo(1L));
+		assertThat(page.getPageSize(), equalTo(1));
+	}
 }

@@ -70,4 +70,5 @@ public abstract class AbstractAction implements Activity {
 	public Serializer jsonWithoutRoot() {
 		return result().use(Results.json()).withoutRoot().from(dbObject);
 	}
+	
 }

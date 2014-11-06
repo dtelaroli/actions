@@ -11,9 +11,12 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.action.AbstractAction;
 import br.com.caelum.vraptor.actions.api.action.ListAction;
+import br.com.caelum.vraptor.actions.api.db.order.Order;
 
 @RequestScoped
 public class DefaultListAction extends AbstractAction implements ListAction {
+
+	private Order[] order;
 
 	/**
 	 * @deprecated CDI eyes-only
@@ -29,7 +32,12 @@ public class DefaultListAction extends AbstractAction implements ListAction {
 	
 	@Override
 	public <T> List<T> all(Class<T> type) {
-		return db().use(find()).all(type);
+		return db().use(find()).with(order).all(type);
 	}
 	
+	public ListAction with(Order... order) {
+		this.order = order;
+		return this;
+	}
+
 }

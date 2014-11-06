@@ -9,6 +9,7 @@ import javax.enterprise.inject.Vetoed;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.action.ListAction;
+import br.com.caelum.vraptor.actions.api.db.order.Order;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Vetoed
@@ -33,6 +34,11 @@ public class MockListAction extends AbstractMock implements ListAction {
 			return (List<T>) object;
 		}
 		return (List<T>) Arrays.asList(object);
+	}
+
+	@Override
+	public ListAction with(Order... asc) {
+		return this;
 	}
 
 }

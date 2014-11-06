@@ -37,6 +37,7 @@ public class DefaultActTest {
 
 	private Act act;
 	@Mock private Container container;
+	private MockValidator validatior;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -49,12 +50,14 @@ public class DefaultActTest {
 			@Override public ListAction with(Order... order) { return null; }
 		});
 		when(container.instanceFor(Result.class)).thenReturn(new MockResult());
-		when(container.instanceFor(Validator.class)).thenReturn(new MockValidator());
+		validatior = spy(new MockValidator());
+		when(container.instanceFor(Validator.class)).thenReturn(validatior);
 		when(container.instanceFor(list())).thenReturn(new MockListAction());
 		when(container.instanceFor(load())).thenReturn(new MockLoadAction());
 		when(container.instanceFor(persist())).thenReturn(new MockPersistAction());
 		when(container.instanceFor(delete())).thenReturn(new MockDeleteAction());
 		when(container.instanceFor(pagination())).thenReturn(new MockPaginationAction());
+		
 		
 		act = spy(new DefaultAct(container));
 	}
@@ -109,6 +112,14 @@ public class DefaultActTest {
 		act.deleteBy(MyModel.class, 1L);
 		
 		verify(act).as(delete());
+	}
+	
+	@Test
+	public void shouldExecuteValidationErrorRedirect() {
+		act.onValidationErrorSendBadRequest();
+		
+		verify(act).validator();
+		verify(validatior).onErrorSendBadRequest();
 	}
 	
 }

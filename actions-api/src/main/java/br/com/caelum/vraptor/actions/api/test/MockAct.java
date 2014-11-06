@@ -145,4 +145,10 @@ public class MockAct extends AbstractMock implements Act {
 		return this;
 	}
 
+	@Override
+	public Act onValidationErrorSendBadRequest() {
+		validator().onErrorSendBadRequest();
+		return this;
+	}
+
 }

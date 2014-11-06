@@ -52,6 +52,12 @@ public class DefaultAct implements Act {
 	public Validator validator() {
 		return validator;
 	}
+	
+	@Override
+	public Act onValidationErrorSendBadRequest() {
+		validator().onErrorSendBadRequest();
+		return this;
+	}
 
 	@Override
 	public <T> List<T> listAll(Class<T> type) {
@@ -88,4 +94,5 @@ public class DefaultAct implements Act {
 		result.include(key, object);
 		return this;
 	}
+
 }

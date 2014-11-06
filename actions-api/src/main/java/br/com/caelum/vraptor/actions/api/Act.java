@@ -18,6 +18,8 @@ public interface Act {
 	
 	Act include(String key, Object value);
 
+	Act onValidationErrorSendBadRequest();
+	
 	<T> List<T> listAll(Class<T> type);
 	
 	<T> T loadBy(Class<T> type, Object id);

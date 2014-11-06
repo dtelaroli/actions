@@ -18,7 +18,9 @@ public interface Act {
 	
 	Act include(String key, Object value);
 
-	Act onValidationErrorSendBadRequest();
+	Act onErrorSendBadRequest();
+	
+	Act onErrorRedirectToReferer();
 	
 	<T> List<T> listAll(Class<T> type);
 	
@@ -31,5 +33,6 @@ public interface Act {
 	<T> PersistAction insert(T object);
 	
 	<T> PersistAction update(T object);
+
 	
 }

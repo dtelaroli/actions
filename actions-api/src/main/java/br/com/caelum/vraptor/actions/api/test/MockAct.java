@@ -4,12 +4,16 @@ import static br.com.caelum.vraptor.actions.api.Acts.delete;
 import static br.com.caelum.vraptor.actions.api.Acts.list;
 import static br.com.caelum.vraptor.actions.api.Acts.load;
 import static br.com.caelum.vraptor.actions.api.Acts.persist;
+import static br.com.caelum.vraptor.view.Results.referer;
+import static br.com.caelum.vraptor.view.Results.status;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.enterprise.inject.Vetoed;
 
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.View;
 import br.com.caelum.vraptor.actions.api.Act;
 import br.com.caelum.vraptor.actions.api.Action;
 import br.com.caelum.vraptor.actions.api.Db;
@@ -22,6 +26,7 @@ import br.com.caelum.vraptor.actions.api.db.IModel;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
+import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Vetoed
@@ -38,7 +43,11 @@ public class MockAct extends AbstractMock implements Act {
 	}
 	
 	public MockAct(Result result) {
-		this(result, null, new MockValidator());
+		this(result, new MockValidator());
+	}
+	
+	public MockAct(Result result, Validator validator) {
+		this(result, new MockDb(), validator);
 	}
 	
 	public MockAct(Result result, Db db, Validator validator) {
@@ -146,9 +155,22 @@ public class MockAct extends AbstractMock implements Act {
 	}
 
 	@Override
-	public Act onValidationErrorSendBadRequest() {
+	public Act onErrorSendBadRequest() {
 		validator().onErrorSendBadRequest();
+		List<I18nMessage> errors = Arrays.asList(new I18nMessage("badRequest", "error.unknown"));
+		resultOnException(status()).badRequest(errors);
 		return this;
+	}
+
+	@Override
+	public Act onErrorRedirectToReferer() {
+		validator().onErrorUse(referer()).redirect();
+		resultOnException(referer()).redirect();
+		return this;
+	}
+
+	private <T extends View> T resultOnException(Class<T> view) {
+		return result().on(Exception.class).use(view);
 	}
 
 }

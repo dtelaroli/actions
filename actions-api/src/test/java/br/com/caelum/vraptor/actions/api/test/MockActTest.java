@@ -5,6 +5,7 @@ import static br.com.caelum.vraptor.actions.api.Acts.list;
 import static br.com.caelum.vraptor.actions.api.Acts.load;
 import static br.com.caelum.vraptor.actions.api.Acts.pagination;
 import static br.com.caelum.vraptor.actions.api.Acts.persist;
+import static br.com.caelum.vraptor.view.Results.referer;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
@@ -22,17 +23,20 @@ import org.junit.Test;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
 import br.com.caelum.vraptor.util.test.MockResult;
+import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.Validator;
 
 public class MockActTest {
 
 	MockAct mock;
 	private Result result;
+	private Validator validator;
 	
 	@Before
 	public void setUp() throws Exception {
 		result = spy(new MockResult());
-		mock = new MockAct(result);
+		validator = spy(new MockValidator());
+		mock = new MockAct(result, validator);
 	}
 
 	@Test
@@ -118,5 +122,21 @@ public class MockActTest {
 	public void shouldRedirectAfterDelete() {
 		mock.as(delete()).by(MyModel.class, 1L).redirectTo(MyController.class).index();
 		verify(result).redirectTo(MyController.class);
+	}
+	
+	@Test
+	public void shouldExecuteValidationErrorBadRequest() {
+		mock.onErrorSendBadRequest();
+		
+		verify(validator).onErrorSendBadRequest();
+		verify(result).on(Exception.class);
+	}
+	
+	@Test
+	public void shouldExecuteValidationErrorRedirect() {
+		mock.onErrorRedirectToReferer();
+		
+		verify(validator).onErrorUse(referer());
+		verify(result).on(Exception.class);
 	}
 }

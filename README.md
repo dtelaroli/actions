@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/dtelaroli/actions.png?branch=master)](https://travis-ci.org/dtelaroli/actions)
+vraptor-actions
+=====
+
 # VRaptor Actions
 
 Não use Generics nos seus Controllers e Daos, use Dependency Injection.

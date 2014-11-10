@@ -1,6 +1,4 @@
 [![Build Status](https://travis-ci.org/dtelaroli/actions.png?branch=master)](https://travis-ci.org/dtelaroli/actions)
-vraptor-actions
-=====
 
 # VRaptor Actions
 

@@ -8,6 +8,6 @@ public interface ListAction extends Activity {
 
 	<T> List<T> all(Class<T> type);
 
-	ListAction with(Order... asc);
+	ListAction with(Order... order);
 
 }

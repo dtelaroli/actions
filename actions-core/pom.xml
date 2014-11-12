@@ -29,4 +29,27 @@
 			<version>${weld.version}</version>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.avaje.ebeanorm</groupId>
+				<artifactId>avaje-ebeanorm-mavenenhancer</artifactId>
+				<version>${ebean.version}</version>
+				<configuration>
+					<packages>models.**,br.com.caelum.vraptor.actions.core.model.**</packages>
+					<transformArgs>debug=1</transformArgs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>main</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

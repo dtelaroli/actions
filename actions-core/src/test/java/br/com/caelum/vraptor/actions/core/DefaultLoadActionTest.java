@@ -4,6 +4,7 @@ import static br.com.caelum.vraptor.actions.api.Dbs.find;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
+import models.MyModel;
 
 import org.junit.Before;
 import org.junit.Test;

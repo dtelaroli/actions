@@ -1,14 +1,14 @@
-package br.com.caelum.vraptor.actions.core;
+package models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.com.caelum.vraptor.actions.api.db.IModel;
+import br.com.caelum.vraptor.actions.core.model.Model;
 
 @Entity
-public class MyModel implements IModel {
+public class MyModel extends Model {
 
 	private static final long serialVersionUID = -5544370617414899837L;
 

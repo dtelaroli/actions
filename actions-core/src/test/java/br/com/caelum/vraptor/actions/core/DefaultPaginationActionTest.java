@@ -12,6 +12,8 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 
+import models.MyModel;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

@@ -28,5 +28,31 @@ public class TenantModel extends Model {
 	public void setTenant(Tenant tenant) {
 		this.tenant = tenant;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((tenant == null) ? 0 : tenant.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TenantModel other = (TenantModel) obj;
+		if (tenant == null) {
+			if (other.tenant != null)
+				return false;
+		} else if (!tenant.equals(other.tenant))
+			return false;
+		return true;
+	}
+	
 	
 }

@@ -38,7 +38,7 @@
 				<version>${ebean.version}</version>
 				<configuration>
 					<packages>models.**,br.com.caelum.vraptor.actions.core.model.**</packages>
-					<transformArgs>debug=1</transformArgs>
+					<transformArgs>debug=9</transformArgs>
 				</configuration>
 				<executions>
 					<execution>

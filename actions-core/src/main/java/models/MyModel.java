@@ -1,15 +1,21 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import br.com.caelum.vraptor.actions.core.model.Model;
+import br.com.caelum.vraptor.actions.api.db.IModel;
 
 @Entity
-public class MyModel extends Model {
+public class MyModel implements IModel {
 
 	private static final long serialVersionUID = -5544370617414899837L;
 
 	private String name;
+
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	public MyModel() {
 	}
@@ -24,6 +30,14 @@ public class MyModel extends Model {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 }

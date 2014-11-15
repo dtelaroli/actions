@@ -28,7 +28,6 @@ public class MockDbTest {
 		mock.use(find()).all(MyModel.class);
 	}
 	
-	@SuppressWarnings("serial")
 	@Test
 	public void shouldNotThrowNullPointersOnFindDbPersist() {
 		mock.use(persist()).save(new IModel() {

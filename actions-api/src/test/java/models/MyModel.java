@@ -10,8 +10,6 @@ import br.com.caelum.vraptor.actions.api.db.IModel;
 @Entity
 public class MyModel implements IModel {
 
-	private static final long serialVersionUID = 6910238158340880820L;
-
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	

@@ -7,6 +7,7 @@ import br.com.caelum.vraptor.actions.api.action.ListAction;
 import br.com.caelum.vraptor.actions.api.action.LoadAction;
 import br.com.caelum.vraptor.actions.api.action.PaginationAction;
 import br.com.caelum.vraptor.actions.api.action.PersistAction;
+import br.com.caelum.vraptor.actions.api.action.SessionAction;
 
 @Vetoed
 public class Acts {
@@ -29,6 +30,10 @@ public class Acts {
 
 	public static Class<DeleteAction> delete() {
 		return DeleteAction.class;
+	}
+	
+	public static Class<SessionAction> session() {
+		return SessionAction.class;
 	}
 
 }

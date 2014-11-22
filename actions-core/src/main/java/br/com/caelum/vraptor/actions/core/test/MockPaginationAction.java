@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.api.test;
+package br.com.caelum.vraptor.actions.core.test;
 
 import java.util.Collections;
 

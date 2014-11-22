@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.api.test;
+package br.com.caelum.vraptor.actions.core.test;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -8,6 +8,8 @@ import models.MyModel;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import br.com.caelum.vraptor.actions.core.test.MockLoadAction;
 
 public class MockLoadActionTest {
 

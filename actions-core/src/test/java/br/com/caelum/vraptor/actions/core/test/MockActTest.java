@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.api.test;
+package br.com.caelum.vraptor.actions.core.test;
 
 import static br.com.caelum.vraptor.actions.api.Acts.delete;
 import static br.com.caelum.vraptor.actions.api.Acts.list;
@@ -22,6 +22,8 @@ import org.junit.Test;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
+import br.com.caelum.vraptor.actions.api.test.MyController;
+import br.com.caelum.vraptor.actions.core.test.MockAct;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.Validator;

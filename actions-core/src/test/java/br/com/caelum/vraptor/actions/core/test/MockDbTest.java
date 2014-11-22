@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.api.test;
+package br.com.caelum.vraptor.actions.core.test;
 
 import static br.com.caelum.vraptor.actions.api.Dbs.delete;
 import static br.com.caelum.vraptor.actions.api.Dbs.find;
@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.db.IModel;
+import br.com.caelum.vraptor.actions.core.test.MockDb;
 
 public class MockDbTest {
 

@@ -7,6 +7,7 @@ import br.com.caelum.vraptor.actions.api.action.ListAction;
 import br.com.caelum.vraptor.actions.api.action.LoadAction;
 import br.com.caelum.vraptor.actions.api.action.PaginationAction;
 import br.com.caelum.vraptor.actions.api.action.PersistAction;
+import br.com.caelum.vraptor.actions.api.service.EmailAction;
 import br.com.caelum.vraptor.actions.api.service.SessionAction;
 
 @Vetoed
@@ -34,6 +35,10 @@ public class Acts {
 	
 	public static Class<SessionAction> session() {
 		return SessionAction.class;
+	}
+	
+	public static Class<EmailAction> email() {
+		return EmailAction.class;
 	}
 
 }

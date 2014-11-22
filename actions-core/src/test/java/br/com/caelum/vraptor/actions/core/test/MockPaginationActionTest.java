@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.api.test;
+package br.com.caelum.vraptor.actions.core.test;
 
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.equalTo;
@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
+import br.com.caelum.vraptor.actions.core.test.MockPaginationAction;
 
 public class MockPaginationActionTest {
 

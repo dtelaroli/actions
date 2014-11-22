@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.actions.api.test;
+package br.com.caelum.vraptor.actions.core.test;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.actions.api.test.MyController;
+import br.com.caelum.vraptor.actions.core.test.MockDeleteAction;
 import br.com.caelum.vraptor.util.test.MockResult;
 
 public class MockDeleteActionTest {

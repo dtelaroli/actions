@@ -17,6 +17,7 @@ import org.mockito.Spy;
 import br.com.caelum.vraptor.actions.api.Db;
 import br.com.caelum.vraptor.actions.api.action.PersistAction;
 import br.com.caelum.vraptor.actions.api.db.PersistDb;
+import br.com.caelum.vraptor.actions.core.test.MyController;
 import br.com.caelum.vraptor.util.test.MockSerializationResult;
 
 public class DefaultPersistActionTest {
@@ -36,7 +37,7 @@ public class DefaultPersistActionTest {
 		
 		when(saveDb.save(model)).thenReturn(savedModel);
 		when(db.use(persist())).thenReturn(saveDb);
-		when(result.redirectTo(br.com.caelum.vraptor.actions.core.MyController.class)).thenReturn(new MyController());
+		when(result.redirectTo(br.com.caelum.vraptor.actions.core.test.MyController.class)).thenReturn(new MyController());
 		
 		act = new DefaultPersistAction(result, db);
 	}

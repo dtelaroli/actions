@@ -7,7 +7,7 @@ import br.com.caelum.vraptor.actions.api.action.ListAction;
 import br.com.caelum.vraptor.actions.api.action.LoadAction;
 import br.com.caelum.vraptor.actions.api.action.PaginationAction;
 import br.com.caelum.vraptor.actions.api.action.PersistAction;
-import br.com.caelum.vraptor.actions.api.action.SessionAction;
+import br.com.caelum.vraptor.actions.api.service.SessionAction;
 
 @Vetoed
 public class Acts {

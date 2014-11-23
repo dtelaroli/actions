@@ -7,7 +7,7 @@ import br.com.caelum.vraptor.actions.api.action.Activity;
 
 public interface EmailAction extends Activity {
 
-	Result send();
+	Result send() throws Exception;
 	
 	EmailAction render(String template);
 	

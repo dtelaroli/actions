@@ -78,11 +78,19 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator-cdi</artifactId>
 			<version>5.1.1.Final</version>
+			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.3.3</version>
+			<optional>true</optional>
+		</dependency>
+
 	</dependencies>
-	
+
 	<dependencyManagement>
-	
+
 	</dependencyManagement>
 
 	<build>

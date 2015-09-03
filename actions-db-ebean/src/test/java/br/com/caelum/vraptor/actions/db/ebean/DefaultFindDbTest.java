@@ -17,8 +17,7 @@ import org.junit.Test;
 import br.com.caelum.vraptor.actions.api.db.FindDb;
 import br.com.caelum.vraptor.actions.api.db.order.Order;
 import br.com.caelum.vraptor.actions.api.db.pagination.Page;
-import br.com.caelum.vraptor.actions.db.ebean.DefaultFindDb;
-import br.com.caelum.vraptor.dbunit.ebean.DbUnitEbean;
+import br.com.flexait.dbunit.ebean.DbUnitEbean;
 
 public class DefaultFindDbTest {
 

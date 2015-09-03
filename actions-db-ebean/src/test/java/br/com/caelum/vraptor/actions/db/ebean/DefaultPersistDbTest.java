@@ -9,8 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.actions.api.db.PersistDb;
-import br.com.caelum.vraptor.actions.db.ebean.DefaultPersistDb;
-import br.com.caelum.vraptor.dbunit.ebean.DbUnitEbean;
+import br.com.flexait.dbunit.ebean.DbUnitEbean;
 
 import com.avaje.ebean.Ebean;
 

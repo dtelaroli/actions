@@ -15,7 +15,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>br.com.caelum.vraptor</groupId>
-			<artifactId>actions-api</artifactId>
+			<artifactId>actions-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

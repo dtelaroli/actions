@@ -11,10 +11,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<vraptor.version>4.1.1</vraptor.version>
+		<vraptor.version>4.2.0-RC3</vraptor.version>
 		<weld.version>2.2.4.Final</weld.version>
 		<cdi.version>1.2</cdi.version>
-		<ebean.version>4.1.8</ebean.version>
+		<ebean.version>4.7.1</ebean.version>
 		<dbunit.version>2.5.0</dbunit.version>
 		<log4j.version>1.7.5</log4j.version>
 		<junit.version>4.11</junit.version>
@@ -78,13 +78,11 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator-cdi</artifactId>
 			<version>5.1.1.Final</version>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-email</artifactId>
 			<version>1.3.3</version>
-			<optional>true</optional>
 		</dependency>
 
 	</dependencies>
